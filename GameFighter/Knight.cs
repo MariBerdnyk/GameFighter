@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GameFighter
 {
-    public class Knight
+    public class Knight : Warrior
     {
+        public Knight() : base()
+        {
+            attack = 7;
+        }
     }
 }

@@ -9,8 +9,8 @@ namespace GameFighter
     public class Warrior
     {
         public int health = default;
-        private int attack = default;
-        public bool Alive { get; set; }
+        public int attack = default;
+        private bool Alive { get; set; }
         public Warrior()
         {
             health = 50;
