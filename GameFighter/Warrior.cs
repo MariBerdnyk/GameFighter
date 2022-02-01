@@ -10,7 +10,7 @@ namespace GameFighter
     {
         public int health = default;
         public int attack = default;
-        private bool Alive { get; set; }
+        public bool Alive { get; set; }
         public Warrior()
         {
             health = 50;
@@ -22,6 +22,11 @@ namespace GameFighter
             while(warrior.health > 0 && health > 0)
             {
                 warrior.health -= attack;
+                if (warrior.health <= 0)
+                {
+                    warrior.Alive = false;
+                    break;
+                }
                 health -= warrior.attack;
                 Alive = health > 0;
             }
