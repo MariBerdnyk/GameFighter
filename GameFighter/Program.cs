@@ -7,7 +7,6 @@ namespace GameFighter
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
         }
     }
 }
