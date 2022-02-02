@@ -3,7 +3,7 @@
     public class Warrior
     {
         public int Health { get; private set; }
-        public int Attack { get; init; } = default;
+        public int Attack { get; init; }
         public bool Alive { get; private set; }
         public Warrior()
         {
