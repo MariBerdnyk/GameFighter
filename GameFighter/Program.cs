@@ -11,12 +11,20 @@ namespace GameFighter
             var carl = new Knight();
             var dave = new Warrior();
 
-            //Console.WriteLine(chuck.Fight(bruce));
-            //Console.WriteLine(dave.Fight(carl));
-            //Console.WriteLine(chuck.Alive);
-            //Console.WriteLine(bruce.Alive);
-            //Console.WriteLine(carl.Alive);
-            //Console.WriteLine(dave.Alive);
+            Console.WriteLine(Battle.Fight(chuck, bruce));
+            Console.WriteLine(Battle.Fight(dave, carl));
+
+            Console.WriteLine("Are alive:");
+            Console.WriteLine("\t" + chuck.Alive);
+            Console.WriteLine("\t" + bruce.Alive);
+            Console.WriteLine("\t" + carl.Alive);
+            Console.WriteLine("\t" + dave.Alive);
+
+            Console.WriteLine("Health:");
+            Console.WriteLine("\t" + chuck.Health);
+            Console.WriteLine("\t" + bruce.Health);
+            Console.WriteLine("\t" + carl.Health);
+            Console.WriteLine("\t" + dave.Health);
         }
     }
 }
