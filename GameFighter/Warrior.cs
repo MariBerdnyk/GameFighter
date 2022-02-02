@@ -2,28 +2,28 @@
 {
     public class Warrior
     {
-        public int health = default;
-        public int attack = default;
-        public bool Alive { get; set; }
+        public int Health { get; init; }
+        public int Attack { get; init; } = default;
+        public bool Alive { get; private set; }
         public Warrior()
         {
-            health = 50;
-            attack = 5;
+            Health = 50;
+            Attack = 5;
             Alive = true;
         }
         public bool Fight(Warrior warrior)
         {
-            while(warrior.health > 0 && health > 0)
-            {
-                warrior.health -= attack;
-                if (warrior.health <= 0)
-                {
-                    warrior.Alive = false;
-                    break;
-                }
-                health -= warrior.attack;
-                Alive = health > 0;
-            }
+            //while (warrior.Health > 0 && Health > 0)
+            //{
+            //    warrior.Health -= Attack;
+            //    if (warrior.Health <= 0)
+            //    {
+            //        warrior.Alive = false;
+            //        break;
+            //    }
+            //    Health -= warrior.Attack;
+            //    Alive = health > 0;
+            //}
             return Alive;
         }
     }

@@ -4,7 +4,7 @@
     {
         public Knight() : base()
         {
-            attack = 7;
+            Attack = 7;
         }
     }
 }
