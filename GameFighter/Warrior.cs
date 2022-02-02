@@ -4,19 +4,15 @@
     {
         public int Health { get; private set; }
         public int Attack { get; protected set; }
-        public bool Alive { get; private set; }
+        public bool Alive { get => Health > 0 ? true : false; }
         public Warrior()
         {
             Health = 50;
             Attack = 5;
-            Alive = true;
         }
-        public bool Fight(int attack)
+        public void Hit(int attack)
         {
             Health -= attack;
-            if (Health <= 0)
-                Alive = false;
-            return Alive;
         }
     }
 }
