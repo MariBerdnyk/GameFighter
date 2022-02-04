@@ -34,7 +34,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_KnightVsKnight_ReternTrue()
+        public void Fight_KnightVsKnight_ReturnTrue()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -43,7 +43,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsWarrior1AfterBattleVsWarriorAlive_ReternTrue()
+        public void Fight_WarriorVsWarrior_FirstWarriorIsAlive()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -54,7 +54,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsWarrior2AfterBattleVsWarriorAlive_ReternFalse()
+        public void Fight_WarriorVsWarrior_SecondWarriorIsAlive()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -65,7 +65,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsWarriorAfterBattleVsKnightAlive_ReternFalse()
+        public void Fight_WarriorVsKnight_WarriorIsAlive()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -76,7 +76,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsKnightAfterBattleVsWarriorAlive_ReternTrue()
+        public void Fight_WarriorVsKnight_KnightIsAlive()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -87,7 +87,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsKnight1AfterBattleVsKnightAlive_ReternTrue()
+        public void Fight_KnightVsKnight_FirstKnightIsAlive()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -98,7 +98,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_IsKnight2AfterBattleVsKnightAlive_ReternFalse()
+        public void Fight_KnightVsKnight_SecondKnightIsAlive()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -109,7 +109,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_Warrior1HealthAfterBattleVsWarrior_Retern5()
+        public void Fight_Warrior1HealthAfterBattleVsWarrior_Return5()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -120,7 +120,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_Warrior2HealthAfterBattleVsWarrior_Retern0()
+        public void Fight_Warrior2HealthAfterBattleVsWarrior_Return0()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -131,7 +131,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_WarriorHealthAfterBattleVsKnight_ReternNegative6()
+        public void Fight_WarriorHealthAfterBattleVsKnight_ReturnNegative6()
         {
             var warrior1 = new Warrior();
             var knight = new Knight();
@@ -142,7 +142,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_KnightHealthAfterBattleVsWarrior_Retern10()
+        public void Fight_KnightHealthAfterBattleVsWarrior_Return10()
         {
             var warrior1 = new Warrior();
             var knight = new Knight();
@@ -153,7 +153,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_KnightHealthAfterBattleVsKnight_Retern1()
+        public void Fight_KnightHealthAfterBattleVsKnight_Return1()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -164,12 +164,12 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_NullWarriors_ThrowNotImplemetException()
+        public void Fight_NullWarriors_ThrowArgumentNullException()
         {
             Warrior warrior1 = null;
             Warrior warrior2 = null;
 
-            Assert.Throws<NotImplementedException>(() => Battle.Fight(warrior1, warrior2));
+            Assert.Throws<ArgumentNullException>(() => Battle.Fight(warrior1, warrior2));
         }
     }
 }

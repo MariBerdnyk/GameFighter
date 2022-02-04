@@ -8,7 +8,7 @@ namespace GameFighter
         {
             if (warrior1 == null || warrior2 == null)
             {
-                throw new NotImplementedException("warrior1 and warrior2 must be initialised!");
+                throw new ArgumentNullException("warrior1 and warrior2 must be initialised!");
             }
 
             if (!warrior1.IsAlive || !warrior2.IsAlive)
