@@ -1,4 +1,5 @@
 using GameFighter;
+using System;
 using Xunit;
 
 namespace GameFighterXUnitTests
@@ -160,6 +161,15 @@ namespace GameFighterXUnitTests
             Battle.Fight(knight1, knight2);
 
             Assert.Equal(1, knight1.Health);
+        }
+
+        [Fact]
+        public void Dead_Warriors()
+        {
+            var warrior1 = new Warrior() { Health = 0 };
+            var warrior2 = new Warrior() { Health = 0 };
+
+            Assert.Throws<ArgumentException>(() => Battle.Fight(warrior1, warrior2));
         }
     }
 }
