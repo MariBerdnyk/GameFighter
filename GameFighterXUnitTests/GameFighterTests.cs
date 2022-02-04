@@ -171,5 +171,14 @@ namespace GameFighterXUnitTests
 
             Assert.Throws<ArgumentException>(() => Battle.Fight(warrior1, warrior2));
         }
+
+        [Fact]
+        public void NullWarriors()
+        {
+            Warrior warrior1 = null;
+            Warrior warrior2 = null;
+
+            Assert.Throws<NotImplementedException>(() => Battle.Fight(warrior1, warrior2));
+        }
     }
 }
