@@ -10,7 +10,13 @@ namespace GameFighter.Models
     {
         public int Health { get; set; }
 
-        public bool IsAlive { get => Health > 0; }
+        public bool IsAlive 
+        {
+            get
+            {
+                return Health > 0;
+            }
+        }
 
         public virtual void GetAttack(Warrior warrior)
         {
