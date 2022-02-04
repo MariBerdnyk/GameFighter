@@ -6,11 +6,11 @@
         {
             while(warrior1.IsAlive)
             {
-                warrior2.GetAttack(warrior1.Attack);
+                warrior2.GetAttack(warrior1);
                 if (!warrior2.IsAlive)
                     return true;
 
-                warrior1.GetAttack(warrior2.Attack);
+                warrior1.GetAttack(warrior2);
             }
             return false;
         }
