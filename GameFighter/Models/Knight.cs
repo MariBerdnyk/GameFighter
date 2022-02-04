@@ -2,7 +2,7 @@
 {
     public class Knight : Warrior
     {
-        public Knight() : base()
+        public Knight()
         {
             Attack = 7;
         }

@@ -2,14 +2,15 @@
 {
     public static class Battle
     {
-        public static bool Fight(Warrior warrior_1, Warrior warrior_2)
+        public static bool Fight(Warrior warrior1, Warrior warrior2)
         {
-            while(warrior_1.Alive)
+            while(warrior1.IsAlive)
             {
-                warrior_2.Hit(warrior_1.Attack);
-                if (!warrior_2.Alive)
+                warrior2.GetAttack(warrior1.Attack);
+                if (!warrior2.IsAlive)
                     return true;
-                warrior_1.Hit(warrior_2.Attack);
+
+                warrior1.GetAttack(warrior2.Attack);
             }
             return false;
         }

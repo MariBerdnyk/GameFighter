@@ -6,34 +6,6 @@ namespace GameFighterXUnitTests
     public class GameFighterTests
     {
         [Fact]
-        public void Health_Warrior()
-        {
-            var warrior = new Warrior();
-            Assert.Equal(50, warrior.Health);
-        }
-
-        [Fact]
-        public void Health_Knight()
-        {
-            var knight = new Knight();
-            Assert.Equal(50, knight.Health);
-        }
-
-        [Fact]
-        public void Attack_Warrior()
-        {
-            var warrior = new Warrior();
-            Assert.Equal(5, warrior.Attack);
-        }
-
-        [Fact]
-        public void Attack_Knight()
-        {
-            var knight = new Knight();
-            Assert.Equal(7, knight.Attack);
-        }
-
-        [Fact]
         public void Fight_Two_Warriors()
         {
             var warrior_1 = new Warrior();
@@ -76,7 +48,8 @@ namespace GameFighterXUnitTests
             var warrior_2 = new Warrior();
 
             Battle.Fight(warrior_1, warrior_2);
-            Assert.True(warrior_1.Alive);
+
+            Assert.True(warrior_1.IsAlive);
         }
 
         [Fact]
@@ -87,7 +60,7 @@ namespace GameFighterXUnitTests
 
             Battle.Fight(warrior_1, warrior_2);
 
-            Assert.False(warrior_2.Alive);
+            Assert.False(warrior_2.IsAlive);
         }
 
         [Fact]
@@ -98,7 +71,7 @@ namespace GameFighterXUnitTests
 
             Battle.Fight(warrior, knight);
 
-            Assert.False(warrior.Alive);
+            Assert.False(warrior.IsAlive);
         }
 
         [Fact]
@@ -109,7 +82,7 @@ namespace GameFighterXUnitTests
 
             Battle.Fight(warrior, knight);
 
-            Assert.True(knight.Alive);
+            Assert.True(knight.IsAlive);
         }
 
         [Fact]
@@ -119,7 +92,8 @@ namespace GameFighterXUnitTests
             var knight_2 = new Knight();
 
             Battle.Fight(knight_1, knight_2);
-            Assert.True(knight_1.Alive);
+
+            Assert.True(knight_1.IsAlive);
         }
 
         [Fact]
@@ -129,7 +103,8 @@ namespace GameFighterXUnitTests
             var knight_2 = new Knight();
 
             Battle.Fight(knight_1, knight_2);
-            Assert.False(knight_2.Alive);
+
+            Assert.False(knight_2.IsAlive);
         }
 
         [Fact]
@@ -139,6 +114,7 @@ namespace GameFighterXUnitTests
             var warrior_2 = new Warrior();
 
             Battle.Fight(warrior_1, warrior_2);
+
             Assert.Equal(5, warrior_1.Health);
         }
 
@@ -149,6 +125,7 @@ namespace GameFighterXUnitTests
             var warrior_2 = new Warrior();
 
             Battle.Fight(warrior_1, warrior_2);
+
             Assert.Equal(0, warrior_2.Health);
         }
 
@@ -159,6 +136,7 @@ namespace GameFighterXUnitTests
             var knight = new Knight();
 
             Battle.Fight(warrior_1, knight);
+
             Assert.Equal(-6, warrior_1.Health);
         }
 
@@ -169,6 +147,7 @@ namespace GameFighterXUnitTests
             var knight = new Knight();
 
             Battle.Fight(warrior_1, knight);
+
             Assert.Equal(10, knight.Health);
         }
 
@@ -179,6 +158,7 @@ namespace GameFighterXUnitTests
             var knight_2 = new Knight();
 
             Battle.Fight(knight_1, knight_2);
+
             Assert.Equal(1, knight_1.Health);
         }
     }

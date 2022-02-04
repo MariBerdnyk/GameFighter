@@ -15,10 +15,10 @@ namespace GameFighter
             Console.WriteLine(Battle.Fight(dave, carl));
 
             Console.WriteLine("Are alive:");
-            Console.WriteLine("\t" + chuck.Alive);
-            Console.WriteLine("\t" + bruce.Alive);
-            Console.WriteLine("\t" + carl.Alive);
-            Console.WriteLine("\t" + dave.Alive);
+            Console.WriteLine("\t" + chuck.IsAlive);
+            Console.WriteLine("\t" + bruce.IsAlive);
+            Console.WriteLine("\t" + carl.IsAlive);
+            Console.WriteLine("\t" + dave.IsAlive);
 
             Console.WriteLine("Health:");
             Console.WriteLine("\t" + chuck.Health);
