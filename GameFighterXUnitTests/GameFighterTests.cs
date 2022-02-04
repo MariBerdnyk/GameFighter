@@ -7,7 +7,7 @@ namespace GameFighterXUnitTests
     public class GameFighterTests
     {
         [Fact]
-        public void Fight_Two_Warriors()
+        public void FightTwoWarriors()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -16,7 +16,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_Warrior_vs_Knight()
+        public void FightWarriorVsKnight()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -25,7 +25,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_Knight_vs_Warrior()
+        public void FightKnightVsWarrior()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -34,7 +34,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_Knight_vs_Knight()
+        public void FightKnightVsKnight()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -43,7 +43,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Warrior1_After_Battle_vs_Warrior_Alive()
+        public void IsWarrior1AfterBattleVsWarriorAlive()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -54,7 +54,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Warrior2_After_Battle_vs_Warrior_Alive()
+        public void IsWarrior2AfterBattleVsWarriorAlive()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -65,7 +65,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Warrior_After_Battle_vs_Knight_Alive()
+        public void IsWarriorAfterBattleVsKnightAlive()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -76,7 +76,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Knight_After_Battle_vs_Warrior_Alive()
+        public void IsKnightAfterBattleVsWarriorAlive()
         {
             var warrior = new Warrior();
             var knight = new Knight();
@@ -87,7 +87,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Knight1_After_Battle_vs_Knight_Alive()
+        public void IsKnight1AfterBattleVsKnightAlive()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -98,7 +98,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Is_Knight2_After_Battle_vs_Knight_Alive()
+        public void IsKnight2AfterBattleVsKnightAlive()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -109,7 +109,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Warrior1_Health_After_Battle_vs_Warrior()
+        public void Warrior1HealthAfterBattleVsWarrior()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -120,7 +120,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Warrior2_Health_After_Battle_vs_Warrior()
+        public void Warrior2HealthAfterBattleVsWarrior()
         {
             var warrior1 = new Warrior();
             var warrior2 = new Warrior();
@@ -131,7 +131,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Warrior_Health_After_Battle_vs_Knight()
+        public void WarriorHealthAfterBattleVsKnight()
         {
             var warrior1 = new Warrior();
             var knight = new Knight();
@@ -142,7 +142,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Knight_Health_After_Battle_vs_Warrior()
+        public void KnightHealthAfterBattleVsWarrior()
         {
             var warrior1 = new Warrior();
             var knight = new Knight();
@@ -153,7 +153,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Knight_Health_After_Battle_vs_Knight()
+        public void KnightHealthAfterBattleVsKnight()
         {
             var knight1 = new Knight();
             var knight2 = new Knight();
@@ -164,7 +164,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Dead_Warriors()
+        public void DeadWarriors()
         {
             var warrior1 = new Warrior() { Health = 0 };
             var warrior2 = new Warrior() { Health = 0 };
