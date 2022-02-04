@@ -1,9 +1,14 @@
-﻿namespace GameFighter
+﻿using System;
+
+namespace GameFighter
 {
     public static class Battle
     {
         public static bool Fight(Warrior warrior1, Warrior warrior2)
         {
+            if (!warrior1.IsAlive || !warrior2.IsAlive)
+                throw new ArgumentException($"{warrior1} and {warrior2} must be alive!");
+
             while(warrior1.IsAlive)
             {
                 warrior2.GetAttack(warrior1);
