@@ -164,15 +164,6 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void DeadWarriors()
-        {
-            var warrior1 = new Warrior() { Health = 0 };
-            var warrior2 = new Warrior() { Health = 0 };
-
-            Assert.Throws<ArgumentException>(() => Battle.Fight(warrior1, warrior2));
-        }
-
-        [Fact]
         public void NullWarriors()
         {
             Warrior warrior1 = null;

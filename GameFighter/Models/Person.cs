@@ -8,7 +8,7 @@ namespace GameFighter.Models
 {
     public abstract class Person
     {
-        public int Health { get; set; }
+        public int Health { get; protected set; }
 
         public bool IsAlive 
         {
