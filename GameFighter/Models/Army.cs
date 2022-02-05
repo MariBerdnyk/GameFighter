@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameFighter.Models
 {
-    public class Army
+    public class Army : IEnumerable
     {
         public List<Warrior> ArmyMembers { get; protected set; }
 
@@ -53,5 +54,6 @@ namespace GameFighter.Models
             }
         }
 
+        public IEnumerator GetEnumerator() => ArmyMembers.GetEnumerator();
     }
 }
