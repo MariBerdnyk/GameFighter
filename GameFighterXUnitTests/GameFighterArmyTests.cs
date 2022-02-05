@@ -113,5 +113,37 @@ namespace GameFighterXUnitTests
 
             Assert.False(Battle.Fight(army1, army2));
         }
+
+        [Fact]
+        public void Fight_NullArmies_ThrowArgumentNullException()
+        {
+            Army army1 = null;
+            Army army2 = null;
+
+            Assert.Throws<ArgumentNullException>(() => Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_ArmiesWithNoUnits_ThrowArgumentException()
+        {
+            Army army1 = new Army();
+            Army army2 = new Army();
+
+            Assert.Throws<ArgumentException>(() => Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_DeadArmies_ThrowArgumentException()
+        {
+            var warrior = new Warrior();
+            Army army1 = new Army();
+            Army army2 = new Army();
+            army1.AddUnits(warrior, 1);
+            army2.AddUnits(warrior, 2);
+
+            Battle.Fight(army1, army2);
+
+            Assert.Throws<ArgumentException>(() => Battle.Fight(army1, army2));
+        }
     }
 }
