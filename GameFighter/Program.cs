@@ -28,12 +28,12 @@ namespace GameFighter
             //Console.WriteLine("\t" + carl.Health);
             //Console.WriteLine("\t" + dave.Health);
 
-            var knight = new Knight();
+            var warrior = new Warrior();
 
             var army1 = new Army();
             var army2 = new Army();
-            army1.AddUnits(knight, 3);
-            army2.AddUnits(knight, 3);
+            army1.AddUnits(warrior, 20);
+            army2.AddUnits(warrior, 21);
 
             Console.WriteLine(Battle.Fight(army1, army2));
         }

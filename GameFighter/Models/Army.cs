@@ -38,8 +38,8 @@ namespace GameFighter.Models
         {
             while (number > 0)
             {
-                ArmyMembers.Add(warrior);
                 warrior = new Warrior();
+                ArmyMembers.Add(warrior);
                 number--;
             }
         }
