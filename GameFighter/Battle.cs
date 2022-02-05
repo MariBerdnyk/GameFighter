@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFighter.Models;
+using System;
 
 namespace GameFighter
 {
@@ -25,6 +26,46 @@ namespace GameFighter
                 }
 
                 warrior1.GetAttack(warrior2);
+            }
+            return false;
+        }
+
+        public static bool Fight(Army army1, Army army2)
+        {
+            if (army1 == null || army2 == null)
+            {
+                throw new ArgumentNullException("army1 and army2 must be initialised!");
+            }
+
+            if (army1.CountUnits == 0 || army2.CountUnits == 0)
+            {
+                throw new ArgumentException($"{army1} and {army2} must have units!");
+            }
+
+            if (army1.CountAliveUnits == 0 || army2.CountAliveUnits == 0)
+            {
+                throw new ArgumentException($"{army1} and {army2} must have alive units!");
+            }
+
+            for (int i = 0, j = 0; i < army1.CountUnits && j < army2.CountUnits;)
+            {
+                if (Fight(army1.ArmyMembers[i], army2.ArmyMembers[j]))
+                {
+                    j++;
+
+                    if (j == army2.CountUnits)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    i++;
+                    if (i == army1.CountUnits)
+                    {
+                        return false;
+                    }
+                }
             }
             return false;
         }
