@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GameFighter.Models
 {
-    public class Army : IEnumerable
+    public class Army
     {
         public List<Warrior> ArmyMembers { get; protected set; }
 
@@ -48,8 +48,6 @@ namespace GameFighter.Models
                 ArmyMembers.Add(knight);
                 number--;
             }
-        }
-
-        public IEnumerator GetEnumerator() => ArmyMembers.GetEnumerator();
+        } 
     }
 }
