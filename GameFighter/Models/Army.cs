@@ -32,6 +32,26 @@ namespace GameFighter.Models
         {
             ArmyMembers = new List<Warrior>();
         }
-        
+
+        public void AddUnits(Warrior warrior, int number)
+        {
+            while (number > 0)
+            {
+                ArmyMembers.Add(warrior);
+                warrior = new Warrior();
+                number--;
+            }
+        }
+
+        public void AddUnits(Knight knight, int number)
+        {
+            while (number > 0)
+            {
+                ArmyMembers.Add(knight);
+                knight = new Knight();
+                number--;
+            }
+        }
+
     }
 }
