@@ -11,6 +11,7 @@ namespace GameFighter
             var carl = new Knight();
             var dave = new Warrior();
 
+
             Console.WriteLine(Battle.Fight(chuck, bruce));
             Console.WriteLine(Battle.Fight(dave, carl));
 
