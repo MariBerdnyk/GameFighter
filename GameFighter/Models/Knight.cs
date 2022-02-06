@@ -1,4 +1,6 @@
-﻿namespace GameFighter
+﻿using GameFighter.Models;
+
+namespace GameFighter
 {
     public class Knight : Warrior
     {
@@ -6,5 +8,7 @@
         {
             Attack = 7;
         }
+
+        public override void CreateNewModel(ref Warrior unit) => unit = new Knight();
     }
 }

@@ -11,5 +11,7 @@ namespace GameFighter
             Health = 50;
             Attack = 5;
         }
+
+        public override void CreateNewModel(ref Warrior unit) => unit = new Warrior();
     }
 }

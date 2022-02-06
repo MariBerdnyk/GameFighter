@@ -27,14 +27,7 @@ namespace GameFighter.Models
         {
             while (number > 0)
             {
-                if (unit is Knight)
-                {
-                    unit = new Knight();
-                }
-                else
-                {
-                    unit = new Warrior();
-                }
+                unit.CreateNewModel(ref unit);
 
                 ArmyMembers.Add(unit);
                 number--;
