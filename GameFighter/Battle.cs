@@ -54,6 +54,18 @@ namespace GameFighter
                     return true;
                 }
 
+                if(!army1.ArmyMembers[i].IsAlive)
+                {
+                    i++;
+                    continue;
+                }
+
+                if (!army2.ArmyMembers[j].IsAlive)
+                {
+                    j++;
+                    continue;
+                }
+
                 if (Fight(army1.ArmyMembers[i], army2.ArmyMembers[j]))
                 {
                     j++;
