@@ -47,24 +47,20 @@ namespace GameFighter
                 throw new ArgumentException($"{army1} and {army2} must have alive units!");
             }
 
-            for (int i = 0, j = 0; i < army1.CountUnits && j < army2.CountUnits;)
+            for (int i = 0, j = 0; i < army1.CountUnits && j <= army2.CountUnits;)
             {
+                if (j == army2.CountUnits)
+                {
+                    return true;
+                }
+
                 if (Fight(army1.ArmyMembers[i], army2.ArmyMembers[j]))
                 {
                     j++;
-
-                    if (j == army2.CountUnits)
-                    {
-                        return true;
-                    }
                 }
                 else
                 {
                     i++;
-                    if (i == army1.CountUnits)
-                    {
-                        return false;
-                    }
                 }
             }
             return false;

@@ -5,7 +5,7 @@ namespace GameFighter.Models
 {
     public class Army
     {
-        public List<Warrior> ArmyMembers { get; protected set; }
+        public List<Warrior> ArmyMembers { get; private set; } = new List<Warrior>();
 
         public int CountUnits => ArmyMembers.Count;
 
@@ -23,11 +23,6 @@ namespace GameFighter.Models
                 }
                 return alive;
             }
-        }
-
-        public Army()
-        {
-            ArmyMembers = new List<Warrior>();
         }
 
         public void AddUnits(Warrior warrior, int number)
