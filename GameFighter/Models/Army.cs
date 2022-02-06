@@ -25,13 +25,18 @@ namespace GameFighter.Models
             }
         }
 
+        private void AddingToArmy(Warrior warrior, ref int number)
+        {
+            ArmyMembers.Add(warrior);
+            number--;
+        }
+
         public void AddUnits(Warrior warrior, int number)
         {
             while (number > 0)
             {
                 warrior = new Warrior();
-                ArmyMembers.Add(warrior);
-                number--;
+                AddingToArmy(warrior, ref number);
             }
         }
 
@@ -40,8 +45,7 @@ namespace GameFighter.Models
             while (number > 0)
             {
                 knight = new Knight();
-                ArmyMembers.Add(knight);
-                number--;
+                AddingToArmy(knight, ref number);
             }
         } 
     }
