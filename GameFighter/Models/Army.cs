@@ -9,19 +9,18 @@ namespace GameFighter.Models
 
         public int CountUnits => ArmyMembers.Count;
 
-        public int CountAliveUnits
+        public bool IsSomeUnitAlive
         {
             get
             {
-                int alive = 0;
                 foreach (var item in ArmyMembers)
                 {
                     if (item.IsAlive)
                     {
-                        alive++;
+                        return true;
                     }
                 }
-                return alive;
+                return false;
             }
         }
 
