@@ -16,7 +16,5 @@ namespace GameFighter.Models
         {
             Health -= warrior.Attack;
         }
-
-        abstract public void CreateNewModel(ref Warrior unit);
     }
 }

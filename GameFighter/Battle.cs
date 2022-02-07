@@ -42,7 +42,7 @@ namespace GameFighter
                 throw new ArgumentException($"{army1} and {army2} must have units!");
             }
 
-            if (!army1.IsSomeUnitAlive || !army2.IsSomeUnitAlive)
+            if (army1.GetAliveUnitPosition == -1 || army2.GetAliveUnitPosition == -1)
             {
                 throw new ArgumentException($"{army1} and {army2} must have alive units!");
             }
@@ -53,6 +53,7 @@ namespace GameFighter
                 {
                     return true;
                 }
+
 
                 if(!army1.ArmyMembers[i].IsAlive)
                 {

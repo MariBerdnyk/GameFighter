@@ -4,22 +4,29 @@ namespace GameFighter.Models
 {
     public class Army
     {
-        public List<Warrior> ArmyMembers { get; private set; } = new List<Warrior>();
+        public readonly List<Warrior> ArmyMembers = new List<Warrior>();
 
         public int CountUnits => ArmyMembers.Count;
 
-        public bool IsSomeUnitAlive
+        public int GetAliveUnitPosition
         {
             get
             {
+                if(CountUnits == 0)
+                {
+                    return -1;
+                }
+
+                int position = 0;
                 foreach (var item in ArmyMembers)
                 {
                     if (item.IsAlive)
                     {
-                        return true;
+                        return position;
                     }
+                    position++;
                 }
-                return false;
+                return -1;
             }
         }
 
@@ -27,7 +34,7 @@ namespace GameFighter.Models
         {
             while (number > 0)
             {
-                unit.CreateNewModel(ref unit);
+                unit = new();
 
                 ArmyMembers.Add(unit);
                 number--;

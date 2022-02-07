@@ -8,7 +8,5 @@ namespace GameFighter
         {
             Attack = 7;
         }
-
-        public override void CreateNewModel(ref Warrior unit) => unit = new Knight();
     }
 }
