@@ -1,4 +1,6 @@
-﻿namespace GameFighter
+﻿using GameFighter.Models;
+
+namespace GameFighter
 {
     public class Knight : Warrior
     {

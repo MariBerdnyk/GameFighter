@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFighter.Models;
+using System;
 
 namespace GameFighter
 {

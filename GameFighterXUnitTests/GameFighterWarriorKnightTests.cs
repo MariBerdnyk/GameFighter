@@ -4,7 +4,7 @@ using Xunit;
 
 namespace GameFighterXUnitTests
 {
-    public class GameFighterTests
+    public class GameFighterWarriorKnightTests
     {
         [Fact]
         public void Fight_TwoWarriors_ReturnTrue()
