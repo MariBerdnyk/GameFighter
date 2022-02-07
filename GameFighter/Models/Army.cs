@@ -27,7 +27,7 @@ namespace GameFighter.Models
         {
             while (number > 0)
             {
-                unit = new();
+                unit = unit.CreateNewUnit();
 
                 ArmyMembers.Add(unit);
                 number--;

@@ -11,5 +11,10 @@ namespace GameFighter
             Health = 50;
             Attack = 5;
         }
+
+        public override Warrior CreateNewUnit()
+        {
+            return new();
+        }
     }
 }
