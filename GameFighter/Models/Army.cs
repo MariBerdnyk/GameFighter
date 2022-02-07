@@ -23,13 +23,11 @@ namespace GameFighter.Models
             }
         }
 
-        public void AddUnits(Warrior unit, int number)
+        public void AddUnits<T>(int number) where T : Warrior, new()
         {
             while (number > 0)
             {
-                unit = unit.CreateNewUnit();
-
-                ArmyMembers.Add(unit);
+                ArmyMembers.Add(new T());
                 number--;
             }
         }

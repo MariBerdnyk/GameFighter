@@ -8,10 +8,5 @@ namespace GameFighter
         {
             Attack = 7;
         }
-
-        public override Warrior CreateNewUnit()
-        {
-            return new Knight();
-        }
     }
 }
