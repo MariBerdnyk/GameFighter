@@ -42,42 +42,26 @@ namespace GameFighter
                 throw new ArgumentException($"{army1} and {army2} must have units!");
             }
 
-            if (army1.GetAliveUnitPosition == -1 || army2.GetAliveUnitPosition == -1)
+            if (!army1.HasAliveUnit || !army2.HasAliveUnit)
             {
                 throw new ArgumentException($"{army1} and {army2} must have alive units!");
             }
 
-            for (int i = 0, j = 0; i < army1.CountUnits && j <= army2.CountUnits;)
+            foreach (var item in army1.ArmyMembers)
             {
-                if (j == army2.CountUnits)
+                if (item.IsAlive)
                 {
-                    return true;
-                }
-
-
-                if(!army1.ArmyMembers[i].IsAlive)
-                {
-                    i++;
-                    continue;
-                }
-
-                if (!army2.ArmyMembers[j].IsAlive)
-                {
-                    j++;
-                    continue;
-                }
-
-                if (Fight(army1.ArmyMembers[i], army2.ArmyMembers[j]))
-                {
-                    j++;
-                }
-                else
-                {
-                    i++;
+                    foreach (var item2 in army2.ArmyMembers)
+                    {
+                        if (item2.IsAlive && !Fight(item, item2))
+                        {
+                            break;
+                        }
+                    }
                 }
             }
-            
-            return false;
+
+            return army1.HasAliveUnit;
         }
     }
 }

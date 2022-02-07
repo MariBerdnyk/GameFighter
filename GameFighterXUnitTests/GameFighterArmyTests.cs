@@ -3,7 +3,6 @@ using GameFighter.Models;
 using System;
 using Xunit;
 
-
 namespace GameFighterXUnitTests
 {
     public class GameFighterArmyTests
