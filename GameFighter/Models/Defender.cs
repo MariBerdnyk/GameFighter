@@ -15,7 +15,7 @@
         {
             if (warrior.Attack >= Defence)
             {
-                Health -= (warrior.Attack - Defence);
+                Health -= warrior.Attack - Defence;
             }
         }
     }
