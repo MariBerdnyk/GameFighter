@@ -19,13 +19,25 @@ namespace GameFighter
 
             while(warrior1.IsAlive)
             {
-                warrior2.GetAttack(warrior1);
+
+                int actualattack = warrior2.GetAttack(warrior1);
+
+                if (warrior1 is Vampire)
+                {
+                    (warrior1 as Vampire).Healing(actualattack);
+                }
+
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
 
-                warrior1.GetAttack(warrior2);
+                actualattack = warrior1.GetAttack(warrior2);
+
+                if(warrior2 is Vampire)
+                {
+                    (warrior2 as Vampire).Healing(actualattack);
+                }
             }
             return false;
         }

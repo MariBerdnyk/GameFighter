@@ -10,5 +10,10 @@
             Attack = 4;
             Vampirism = 50;
         }
+
+        public void Healing(int actualAttack)
+        {
+            Health += actualAttack * Vampirism / 100;
+        }
     }
 }
