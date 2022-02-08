@@ -13,13 +13,13 @@
 
         public override int GetAttack(Warrior warrior)
         {
-            int beforeFightHealth = warrior.Health;
+            int beforeFightHealth = Health;
             if (warrior.Attack >= Defence)
             {
                 Health -= warrior.Attack - Defence;
             }
 
-            return beforeFightHealth - warrior.Health;
+            return beforeFightHealth - Health;
         }
     }
 }

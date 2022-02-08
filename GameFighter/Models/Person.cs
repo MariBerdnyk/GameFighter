@@ -15,11 +15,11 @@ namespace GameFighter.Models
 
         public virtual int GetAttack(Warrior warrior)
         {
-            int beforeFightHealth = warrior.Health;
+            int beforeFightHealth = Health;
             
             Health -= warrior.Attack;
 
-            return beforeFightHealth - warrior.Health;
+            return beforeFightHealth - Health;
         }
         //public virtual void GetAttack(Warrior warrior)
         //{

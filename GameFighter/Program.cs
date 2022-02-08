@@ -27,6 +27,18 @@ namespace GameFighter
             Console.WriteLine("\t" + carl.Health);
             Console.WriteLine("\t" + dave.Health);
 
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Defender>(5);
+            army1.AddUnits<Vampire>(6);
+            army1.AddUnits<Warrior>(7);
+
+            army2.AddUnits<Warrior>(6);
+            army2.AddUnits<Defender>(6);
+            army2.AddUnits<Vampire>(6);
+
+            Battle.Fight(army1, army2);
         }
     }
 }
