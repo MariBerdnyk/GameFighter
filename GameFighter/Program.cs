@@ -26,6 +26,7 @@ namespace GameFighter
             Console.WriteLine("\t" + bruce.Health);
             Console.WriteLine("\t" + carl.Health);
             Console.WriteLine("\t" + dave.Health);
+
         }
     }
 }
