@@ -19,7 +19,6 @@ namespace GameFighter
 
             while(warrior1.IsAlive)
             {
-
                 int actualattack = warrior2.GetAttack(warrior1);
 
                 if (warrior1 is Vampire)
