@@ -19,12 +19,7 @@ namespace GameFighter.Models
             
             Health -= warrior.Attack;
 
-            if (Health > 0)
-            {
-                return beforeFightHealth - Health;
-            }
-
-            return beforeFightHealth;
+            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 
         public abstract void Attacks(Warrior warrior);
