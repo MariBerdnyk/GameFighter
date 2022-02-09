@@ -11,8 +11,10 @@
             Vampirism = 50;
         }
 
-        public void Healing(int actualAttack)
+        public override void Attacks(Warrior warrior)
         {
+            int actualAttack = warrior.GetAttack(this);
+
             Health += actualAttack * Vampirism / 100;
         }
     }
