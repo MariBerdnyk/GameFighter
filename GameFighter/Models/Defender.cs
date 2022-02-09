@@ -20,12 +20,7 @@
                 Health -= warrior.Attack - Defence;
             }
 
-            if (Health > 0)
-            {
-                return beforeFightHealth - Health;
-            }
-
-            return beforeFightHealth;
+            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
     }
 }
