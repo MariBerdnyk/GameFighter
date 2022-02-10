@@ -19,13 +19,13 @@ namespace GameFighter
 
             while(warrior1.IsAlive)
             {
-                warrior2.GetAttack(warrior1);
+                warrior1.Attacks(warrior2);
+
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
-
-                warrior1.GetAttack(warrior2);
+                warrior2.Attacks(warrior1);
             }
             return false;
         }

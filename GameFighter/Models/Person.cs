@@ -12,9 +12,16 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
-        public virtual void GetAttack(Warrior warrior)
+
+        public virtual int GetAttack(Warrior warrior)
         {
+            int beforeFightHealth = Health;
+            
             Health -= warrior.Attack;
+
+            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
+
+        public abstract void Attacks(Warrior warrior);
     }
 }

@@ -11,5 +11,10 @@ namespace GameFighter
             Health = 50;
             Attack = 5;
         }
+
+        public override void Attacks(Warrior warrior)
+        {
+            warrior.GetAttack(this);
+        }
     }
 }
