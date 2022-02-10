@@ -12,7 +12,7 @@
             var actualAttack = warrior.GetAttack(Attack);
 
             if (warriorBehind != null)
-                warriorBehind.GetAttack((int)(actualAttack * 0.5));
+                warriorBehind.GetAttack(actualAttack * 50 / 100);
         }
     }
 }
