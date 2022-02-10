@@ -53,10 +53,12 @@ namespace GameFighter
                 {
                     foreach (var item2 in army2.ArmyMembers)
                     {
-                        if (item2.IsAlive && !Fight(item, item2, army1.Next(item), army2.Next(item2)))
+                        if (item2.IsAlive && !Fight(item, item2, army1.Next(), army2.Next()))
                         {
+                            army1.SetAnotherFirstAlive();
                             break;
                         }
+                        army2.SetAnotherFirstAlive();
                     }
                 }
             }

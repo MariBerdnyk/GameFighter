@@ -8,10 +8,36 @@ namespace GameFighter.Models
 
         public int CountUnits => ArmyMembers.Count;
 
-        public Warrior Next(Warrior item)
+        public int FirstUnitAliveIndex { get; private set; } = -1;
+
+        public void SetAnotherFirstAlive()
         {
-            int index = ArmyMembers.IndexOf(item) + 1;
-            return index >= CountUnits ? null : ArmyMembers[index];
+            if (FirstUnitAliveIndex + 1 < CountUnits)
+            {
+                FirstUnitAliveIndex++;
+            }
+            else
+            {
+                FirstUnitAliveIndex = -1;
+            }
+        }
+
+        public Warrior Next()
+        {
+            if (FirstUnitAliveIndex + 1 >= CountUnits)
+            {
+                return null;
+            }
+
+            for (int i = FirstUnitAliveIndex + 1; i < CountUnits; i++)
+            {
+                if (ArmyMembers[i].IsAlive)
+                {
+                    return ArmyMembers[i];
+                }
+            }
+
+            return null;
         }
 
         public bool HasAliveUnit
@@ -31,6 +57,11 @@ namespace GameFighter.Models
 
         public void AddUnits<T>(int number) where T : Warrior, new()
         {
+            if (FirstUnitAliveIndex == -1)
+            {
+                FirstUnitAliveIndex++;
+            }
+
             while (number > 0)
             {
                 ArmyMembers.Add(new T());
