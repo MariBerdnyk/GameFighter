@@ -12,7 +12,6 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
-
         public virtual int GetAttack(Warrior warrior)
         {
             int beforeFightHealth = Health;
