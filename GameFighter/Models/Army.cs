@@ -8,6 +8,12 @@ namespace GameFighter.Models
 
         public int CountUnits => ArmyMembers.Count;
 
+        public Warrior Next(Warrior item)
+        {
+            int index = ArmyMembers.IndexOf(item) + 1;
+            return index >= CountUnits ? null : ArmyMembers[index];
+        }
+
         public bool HasAliveUnit
         {
             get

@@ -11,9 +11,9 @@
             Vampirism = 50;
         }
 
-        public override void Attacks(Warrior warrior)
+        public override void Attacks(Warrior warrior, Warrior warrior1 = null)
         {
-            int actualAttack = warrior.GetAttack(this);
+            int actualAttack = warrior.GetAttack(Attack);
 
             Health += actualAttack * Vampirism / 100;
         }
