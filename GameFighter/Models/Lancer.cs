@@ -11,8 +11,10 @@
         {
             var actualAttack = warrior.GetAttack(Attack);
 
-            if (warriorsArmy.Next(warrior) != null)
+            if (warriorsArmy != null && warriorsArmy.Next(warrior) != null)
+            {
                 warriorsArmy.Next(warrior).GetAttack(actualAttack * 50 / 100);
+            }
         }
     }
 }
