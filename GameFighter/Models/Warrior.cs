@@ -12,9 +12,9 @@ namespace GameFighter
             Attack = 5;
         }
 
-        public override void Attacks(Warrior warrior)
+        public override void Attacks(Warrior warrior, Army warriorsArmy)
         {
-            warrior.GetAttack(this);
+            warrior.GetAttack(Attack);
         }
     }
 }

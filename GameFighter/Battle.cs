@@ -5,7 +5,7 @@ namespace GameFighter
 {
     public static class Battle
     {
-        public static bool Fight(Warrior warrior1, Warrior warrior2)
+        public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null)
         {
             if (warrior1 == null || warrior2 == null)
             {
@@ -19,13 +19,13 @@ namespace GameFighter
 
             while(warrior1.IsAlive)
             {
-                warrior1.Attacks(warrior2);
+                warrior1.Attacks(warrior2, army2);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
-                warrior2.Attacks(warrior1);
+                warrior2.Attacks(warrior1, army1);
             }
             return false;
         }
@@ -53,7 +53,7 @@ namespace GameFighter
                 {
                     foreach (var item2 in army2.ArmyMembers)
                     {
-                        if (item2.IsAlive && !Fight(item, item2))
+                        if (item2.IsAlive && !Fight(item, item2, army1, army2))
                         {
                             break;
                         }
