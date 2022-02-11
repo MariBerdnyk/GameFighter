@@ -11,7 +11,7 @@
             Vampirism = 50;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy = null, Army thisArmy = null)
+        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
             int actualAttack = warrior.GetAttack(Attack);
 

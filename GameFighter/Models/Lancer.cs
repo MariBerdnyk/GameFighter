@@ -7,7 +7,7 @@
             Attack = 6;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy = null)
+        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
             var actualAttack = warrior.GetAttack(Attack);
 
