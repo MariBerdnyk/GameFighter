@@ -7,12 +7,12 @@
             Attack = 6;
         }
 
-        public override void Attacks(Warrior warrior, Warrior warriorBehind)
+        public override void Attacks(Warrior warrior, Army warriorsArmy)
         {
             var actualAttack = warrior.GetAttack(Attack);
 
-            if (warriorBehind != null)
-                warriorBehind.GetAttack(actualAttack * 50 / 100);
+            if (warriorsArmy.Next(warrior) != null)
+                warriorsArmy.Next(warrior).GetAttack(actualAttack * 50 / 100);
         }
     }
 }
