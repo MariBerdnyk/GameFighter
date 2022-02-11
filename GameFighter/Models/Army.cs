@@ -9,10 +9,7 @@ namespace GameFighter.Models
 
         public int CountUnits => ArmyMembers.Count;
 
-        public Warrior Next(Warrior warriorBefore)
-        {
-            return ArmyMembers.SkipWhile(x => x != warriorBefore).Skip(1).Where(x => x.IsAlive).FirstOrDefault();
-        }
+        public Warrior Next(Warrior warriorBefore) => ArmyMembers.SkipWhile(x => x != warriorBefore).Skip(1).Where(x => x.IsAlive).FirstOrDefault();
 
         public bool HasAliveUnit
         {
