@@ -15,7 +15,7 @@ namespace GameFighter
 
         protected virtual void Healing(Warrior warrior, Army thisArmy)
         {
-            if (thisArmy.Next(this) is Healer behindHealer)
+            if (thisArmy!= null && thisArmy.Next(this) is Healer behindHealer)
             {
                 if (Health + behindHealer.Heal > MaxHealth)
                 {

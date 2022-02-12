@@ -19,7 +19,14 @@
 
             int actualAttack = warrior.GetAttack(Attack);
 
-            Health += actualAttack * Vampirism / 100;
+            if (Health + actualAttack * Vampirism / 100 < MaxHealth)
+            {
+                Health += actualAttack * Vampirism / 100;
+            }
+            else
+            {
+                Health = MaxHealth;
+            }
         }
     }
 }
