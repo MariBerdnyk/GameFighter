@@ -8,6 +8,8 @@
             Attack = 0;
             Health = 60;
             Heal = 2;
+
+            MaxHealth = 60;
         }
     }
 }

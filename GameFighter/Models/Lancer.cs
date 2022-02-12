@@ -9,10 +9,7 @@
 
         public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
-            if (thisArmy.Next(this) is Healer behindHealer)
-            {
-                Health += behindHealer.Heal;
-            }
+            Healing(warrior, thisArmy);
 
             var actualAttack = warrior.GetAttack(Attack);
 

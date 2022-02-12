@@ -10,14 +10,27 @@ namespace GameFighter
         {
             Health = 50;
             Attack = 5;
+            MaxHealth = 50;
+        }
+
+        protected virtual void Healing(Warrior warrior, Army thisArmy)
+        {
+            if (thisArmy.Next(this) is Healer behindHealer)
+            {
+                if (Health + behindHealer.Heal > MaxHealth)
+                {
+                    Health = MaxHealth;
+                }
+                else
+                {
+                    Health += behindHealer.Heal;
+                }
+            }
         }
 
         public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
-            if(thisArmy.Next(this) is Healer behindHealer)
-            {
-                Health += behindHealer.Heal;
-            }
+            Healing(warrior, thisArmy);
 
             warrior.GetAttack(Attack);
         }

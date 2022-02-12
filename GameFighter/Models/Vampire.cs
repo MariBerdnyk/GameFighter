@@ -9,14 +9,13 @@
             Health = 40;
             Attack = 4;
             Vampirism = 50;
+
+            MaxHealth = 40;
         }
 
         public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
-            if (thisArmy.Next(this) is Healer behindHealer)
-            {
-                Health += behindHealer.Heal;
-            }
+            Healing(warrior, thisArmy);
 
             int actualAttack = warrior.GetAttack(Attack);
 

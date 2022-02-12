@@ -12,6 +12,8 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
+        protected int MaxHealth = default;
+
         public virtual int GetAttack(int attack)
         {
             int beforeFightHealth = Health;
