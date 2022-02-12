@@ -25,6 +25,7 @@ namespace GameFighter
                 {
                     return true;
                 }
+
                 warrior2.Attacks(warrior1, army1);
             }
             return false;
