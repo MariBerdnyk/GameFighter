@@ -12,8 +12,13 @@ namespace GameFighter
             Attack = 5;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy)
+        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
+            if(thisArmy.Next(this) is Healer behindHealer)
+            {
+                Health += behindHealer.Heal;
+            }
+
             warrior.GetAttack(Attack);
         }
     }

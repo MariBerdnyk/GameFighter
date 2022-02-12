@@ -19,14 +19,14 @@ namespace GameFighter
 
             while(warrior1.IsAlive)
             {
-                warrior1.Attacks(warrior2, army2);
+                warrior1.Attacks(warrior2, army2, army1);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
 
-                warrior2.Attacks(warrior1, army1);
+                warrior2.Attacks(warrior1, army1, army2);
             }
             return false;
         }

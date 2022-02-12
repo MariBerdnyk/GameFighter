@@ -11,8 +11,13 @@
             Vampirism = 50;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy)
+        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
+            if (thisArmy.Next(this) is Healer behindHealer)
+            {
+                Health += behindHealer.Heal;
+            }
+
             int actualAttack = warrior.GetAttack(Attack);
 
             Health += actualAttack * Vampirism / 100;

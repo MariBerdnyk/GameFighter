@@ -21,6 +21,6 @@ namespace GameFighter.Models
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 
-        public abstract void Attacks(Warrior warrior, Army warriorsArmy);
+        public abstract void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy);
     }
 }
