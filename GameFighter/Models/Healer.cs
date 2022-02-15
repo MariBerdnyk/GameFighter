@@ -11,5 +11,17 @@
 
             MaxHealth = 60;
         }
+
+        public override void UniqueOption(Warrior warrior)
+        {           
+            if (warrior.Health + Heal > warrior.MaxHealth)
+            {
+                warrior.Health = warrior.MaxHealth;
+            }
+            else
+            {
+                warrior.Health += Heal;
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace GameFighter.Models
+﻿using System;
+
+namespace GameFighter.Models
 {
     public class Vampire : Warrior
     {
@@ -15,7 +17,7 @@
 
         public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
-            Healing(warrior, thisArmy);
+            thisArmy?.Next(this)?.UniqueOption(this);
 
             int actualAttack = warrior.GetAttack(Attack);
 

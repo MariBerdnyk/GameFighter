@@ -1,4 +1,5 @@
 ﻿using GameFighter.Models;
+using System;
 
 namespace GameFighter
 {
@@ -13,25 +14,11 @@ namespace GameFighter
             MaxHealth = 50;
         }
 
-        protected virtual void Healing(Warrior warrior, Army thisArmy)
-        {
-            if (thisArmy!= null && thisArmy.Next(this) is Healer behindHealer)
-            {
-                if (Health + behindHealer.Heal > MaxHealth)
-                {
-                    Health = MaxHealth;
-                }
-                else
-                {
-                    Health += behindHealer.Heal;
-                }
-            }
-        }
+       
 
         public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
         {
-            Healing(warrior, thisArmy);
-
+            thisArmy?.Next(this)?.UniqueOption(this);
             warrior.GetAttack(Attack);
         }
     }
