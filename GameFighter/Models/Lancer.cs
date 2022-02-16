@@ -1,4 +1,6 @@
-﻿namespace GameFighter.Models
+﻿using System;
+
+namespace GameFighter.Models
 {
     public class Lancer : Warrior
     {
@@ -7,13 +9,22 @@
             Attack = 6;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy)
+        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
         {
+            //NextAbility();
+            thisArmy?.AvokeUnitsNextAbility();
             var actualAttack = warrior.GetAttack(Attack);
 
-            if (warriorsArmy != null && warriorsArmy.Next(warrior) != null)
+            if (!isStraightBattle)
             {
-                warriorsArmy.Next(warrior).GetAttack(actualAttack * 50 / 100);
+                var unitAfter = warrior.Next;
+
+                while (unitAfter != null && !unitAfter.IsAlive)
+                {
+                    unitAfter = unitAfter.Next;
+                }
+
+                unitAfter?.GetAttack(actualAttack * 50 / 100);
             }
         }
     }

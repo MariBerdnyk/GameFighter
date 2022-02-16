@@ -8,19 +8,27 @@ namespace GameFighter.Models
 {
     public abstract class Person
     {
-        public int Health { get; protected set; }
+        public int Health { get; protected internal set; }
 
         public bool IsAlive => Health > 0;
+
+        public int MaxHealth { get; protected init; }
+
+        public Warrior Next { get; set; } = default;
+
+        public virtual void PrepareForBattle() { }
 
         public virtual int GetAttack(int attack)
         {
             int beforeFightHealth = Health;
-            
+
             Health -= attack;
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 
-        public abstract void Attacks(Warrior warrior, Army warriorsArmy);
+        public abstract void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle);
+
+        public virtual void UniqueOption(Warrior warrior) { }
     }
 }

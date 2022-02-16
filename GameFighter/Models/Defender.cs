@@ -9,6 +9,7 @@
             Health = 60;
             Attack = 3;
             Defence = 2;
+            MaxHealth = 60;
         }
 
         public override int GetAttack(int attack)

@@ -1,4 +1,5 @@
 ﻿using GameFighter.Models;
+using System;
 
 namespace GameFighter
 {
@@ -10,10 +11,19 @@ namespace GameFighter
         {
             Health = 50;
             Attack = 5;
+            MaxHealth = 50;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy)
+        public virtual void NextAbility()
         {
+            Next?.UniqueOption(this);
+        }
+
+        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        {
+            //NextAbility();
+            thisArmy?.AvokeUnitsNextAbility();
+
             warrior.GetAttack(Attack);
         }
     }
