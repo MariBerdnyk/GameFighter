@@ -41,6 +41,8 @@ namespace GameFighter.Models
                 Vampirism = 0;
                 return;
             }
+
+            Vampirism += weapon.VampirismParametr;
         }
     }
 }

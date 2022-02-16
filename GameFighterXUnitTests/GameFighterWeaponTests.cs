@@ -31,5 +31,54 @@ namespace GameFighterXUnitTests
 
             Assert.False(Battle.Fight(defender, lancer));
         }
+
+        [Fact]
+        public void Fight_HealerMagicWandVsKnightKatana_ReturnFalse()
+        {
+            var healer = new Healer();
+            var knight = new Knight();
+
+            healer.EquipWeapon(new MagicWand());
+            knight.EquipWeapon(new Katana());
+
+            Assert.False(Battle.Fight(healer, knight));
+        }
+
+        [Fact]
+        public void Fight_DefenderShieldMagicWandVsVampireShieldKatana_ReturnFalse()
+        {
+            var defender = new Defender();
+            var vampire = new Vampire();
+
+            defender.EquipWeapon(new Shield());
+            defender.EquipWeapon(new MagicWand());
+            vampire.EquipWeapon(new Shield());
+            vampire.EquipWeapon(new Katana());
+
+            Assert.False(Battle.Fight(defender, vampire));
+        }
+
+        [Fact]
+        public void Fight_KnightMagicWandLancerGreatAxeVsVampireMagicWandHealerGreatAxe_ReturnTrue()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Knight>(1);
+            army1.AddUnits<Lancer>(1);
+
+            army2.AddUnits<Vampire>(1);
+            army2.AddUnits<Healer>(1);
+
+            army1.ArmyMembers[0].EquipWeapon(new MagicWand());
+            army1.ArmyMembers[1].EquipWeapon(new GreatAxe());
+
+            army2.ArmyMembers[0].EquipWeapon(new MagicWand());
+            army2.ArmyMembers[1].EquipWeapon(new GreatAxe());
+
+            Assert.True(Battle.Fight(army1, army2));
+        }
+
+
     }
 }

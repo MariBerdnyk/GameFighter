@@ -13,7 +13,7 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
-        public int MaxHealth { get; protected init; }
+        public int MaxHealth { get; protected internal set; }
 
         public Warrior Next { get; set; } = default;
 
@@ -42,10 +42,12 @@ namespace GameFighter.Models
             if(Health + weapon.HealthParametr < 0)
             {
                 Health = 0;
+                MaxHealth = 0;
                 return;
             }
 
             Health += weapon.HealthParametr;
+            MaxHealth += weapon.HealthParametr;
         }
     }
 }

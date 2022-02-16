@@ -6,7 +6,7 @@
         {
             HealthParametr = 30;
             AttackParametr = 3;
-            HealthParametr = 3;
+            HealParametr = 3;
         }
     }
 }
