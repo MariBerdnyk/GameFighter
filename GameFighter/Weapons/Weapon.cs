@@ -1,11 +1,25 @@
 ﻿namespace GameFighter.Weapons
 {
-    public abstract class Weapon
+    public class Weapon
     {
-        public int HealthParametr { get; init; }
-        public int AttackParametr { get; init; }
-        public int DefenceParametr { get; init; }
-        public int VampirismParametr { get; init; }
-        public int HealParametr { get; init; }
+        public int HealthParametr { get; init; } = default;
+
+        public int AttackParametr { get; init; } = default;
+
+        public int DefenceParametr { get; init; } = default;
+
+        public int VampirismParametr { get; init; } = default;
+
+        public int HealParametr { get; init; } = default;
+
+        public Weapon(int healthParametr, int attackParametr, int defenceParametr, int vampirismParametr, int healParametr)
+        {
+            HealthParametr = healthParametr;
+            AttackParametr = attackParametr;
+            DefenceParametr = defenceParametr;
+            VampirismParametr = vampirismParametr;
+            HealParametr = healParametr;
+        }
+        public Weapon() { }
     }
 }
