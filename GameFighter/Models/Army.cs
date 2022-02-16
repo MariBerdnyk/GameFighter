@@ -9,7 +9,6 @@ namespace GameFighter.Models
 
         public int CountUnits => ArmyMembers.Count;
 
-
         public bool HasAliveUnit
         {
             get
@@ -22,6 +21,14 @@ namespace GameFighter.Models
                     }
                 }
                 return false;
+            }
+        }
+
+        public void PrepareArmyForBattle()
+        {
+            foreach (var item in ArmyMembers)
+            {
+                item.PrepareForBattle();
             }
         }
 

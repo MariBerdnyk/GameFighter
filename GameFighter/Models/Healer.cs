@@ -15,6 +15,11 @@
             MaxHealth = 60;
         }
 
+        public override void PrepareForBattle()
+        {
+            NumberOfKit = 10;
+        }
+
         public override void UniqueOption(Warrior warrior)
         {
             if (warrior.Health == warrior.MaxHealth || NumberOfKit <= 0)

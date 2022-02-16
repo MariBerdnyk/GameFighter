@@ -16,6 +16,8 @@ namespace GameFighter.Models
 
         public Warrior Next { get; set; } = default;
 
+        public virtual void PrepareForBattle() { }
+
         public virtual int GetAttack(int attack)
         {
             int beforeFightHealth = Health;

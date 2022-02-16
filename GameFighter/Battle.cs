@@ -54,6 +54,9 @@ namespace GameFighter
                 throw new Exception("First units must be able to attack!");
             }
 
+            army1.PrepareArmyForBattle();
+            army2.PrepareArmyForBattle();
+
             foreach (var item in army1.ArmyMembers)
             {
                 if (item.IsAlive)
