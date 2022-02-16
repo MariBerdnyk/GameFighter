@@ -40,16 +40,34 @@ namespace GameFighter
 
             //Battle.Fight(army1, army2);
 
+            //var army1 = new Army();
+            //var army2 = new Army();
+
+            //army1.AddUnits<Lancer>(7);
+
+            //army2.AddUnits<Warrior>(4);
+            //army2.AddUnits<Defender>(4);
+            //army2.AddUnits<Healer>(1);
+
+            //Console.WriteLine(Battle.Fight(army1, army2));
+
             var army1 = new Army();
             var army2 = new Army();
 
             army1.AddUnits<Lancer>(7);
+            army1.AddUnits<Vampire>(3);
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Warrior>(4);
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Defender>(2);
 
             army2.AddUnits<Warrior>(4);
             army2.AddUnits<Defender>(4);
             army2.AddUnits<Healer>(1);
+            army2.AddUnits<Vampire>(6);
+            army2.AddUnits<Lancer>(4);
 
-            Console.WriteLine(Battle.Fight(army1, army2));
+            Battle.StraightFight(army1, army2);
         }
     }
 }
