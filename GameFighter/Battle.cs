@@ -72,5 +72,39 @@ namespace GameFighter
             }
             return army1.HasAliveUnit;
         }
+
+        public static bool StraightFight(Army army1, Army army2)
+        {
+            if (army1 == null || army2 == null)
+            {
+                throw new ArgumentNullException("army1 and army2 must be initialised!");
+            }
+
+            if (army1.CountUnits == 0 || army2.CountUnits == 0)
+            {
+                throw new ArgumentException($"{army1} and {army2} must have units!");
+            }
+
+            if (!army1.HasAliveUnit || !army2.HasAliveUnit)
+            {
+                throw new ArgumentException($"{army1} and {army2} must have alive units!");
+            }
+
+            if (army1.ArmyMembers[0].Attack <= 0 && army2.ArmyMembers[0].Attack <= 0)
+            {
+                throw new Exception("First units must be able to attack!");
+            }
+
+            do
+            {
+                foreach (var (first, second) in army1.ArmyMembers.Where(x => x.IsAlive).Zip(army2.ArmyMembers.Where(x => x.IsAlive)))
+                {
+                    Fight(first, second, null, null, true);
+                }
+
+            } while (army1.HasAliveUnit && army2.HasAliveUnit);
+
+            return army1.HasAliveUnit;
+        }
     }
 }
