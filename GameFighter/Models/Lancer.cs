@@ -9,15 +9,22 @@ namespace GameFighter.Models
             Attack = 6;
         }
 
-        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
+        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
         {
-            thisArmy?.Next(this)?.UniqueOption(this);
-
+            //NextAbility();
+            thisArmy?.AvokeUnitsNextAbility();
             var actualAttack = warrior.GetAttack(Attack);
 
-            if (warriorsArmy != null && warriorsArmy.Next(warrior) != null)
+            if (!isStraightBattle)
             {
-                warriorsArmy.Next(warrior).GetAttack(actualAttack * 50 / 100);
+                var unitAfter = warrior.Next;
+
+                while (unitAfter != null && !unitAfter.IsAlive)
+                {
+                    unitAfter = unitAfter.Next;
+                }
+
+                unitAfter?.GetAttack(actualAttack * 50 / 100);
             }
         }
     }

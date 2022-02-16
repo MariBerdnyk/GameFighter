@@ -3,6 +3,9 @@
     public class Healer : Warrior
     {
         public int Heal { get; protected set; }
+
+        public int NumberOfKit { get; protected set; }
+
         public Healer()
         {
             Attack = 0;
@@ -13,14 +16,21 @@
         }
 
         public override void UniqueOption(Warrior warrior)
-        {           
-            if (warrior.Health + Heal > warrior.MaxHealth)
+        {
+            if (warrior.Health == warrior.MaxHealth || NumberOfKit <= 0)
             {
-                warrior.Health = warrior.MaxHealth;
+                return;
+            }
+
+            if (warrior.Health + Heal <= warrior.MaxHealth)
+            {
+                warrior.Health += Heal;
+                NumberOfKit--;
             }
             else
             {
-                warrior.Health += Heal;
+                warrior.Health = warrior.MaxHealth;
+                NumberOfKit--;
             }
         }
     }

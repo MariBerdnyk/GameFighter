@@ -62,17 +62,5 @@ namespace GameFighterXUnitTests
 
             Assert.True(Battle.Fight(army1, army2));
         }
-
-        [Fact]
-        public void Fight_TwoArmy2KnightVs1Warrior1SuperHealer_ReturnFalse()
-        {
-            Army army1 = new Army();
-            Army army2 = new Army();
-            army1.AddUnits<Knight>(2);
-            army2.AddUnits<Warrior>(1);
-            army2.AddUnits<SuperHealer>(1);
-
-            Assert.False(Battle.Fight(army1, army2));
-        }
     }
 }

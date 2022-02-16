@@ -14,16 +14,18 @@ namespace GameFighter.Models
 
         public int MaxHealth { get; protected init; }
 
+        public Warrior Next { get; set; } = default;
+
         public virtual int GetAttack(int attack)
         {
             int beforeFightHealth = Health;
-            
+
             Health -= attack;
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 
-        public abstract void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy);
+        public abstract void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle);
 
         public virtual void UniqueOption(Warrior warrior) { }
     }

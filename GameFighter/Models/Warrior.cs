@@ -14,11 +14,16 @@ namespace GameFighter
             MaxHealth = 50;
         }
 
-       
-
-        public override void Attacks(Warrior warrior, Army warriorsArmy, Army thisArmy)
+        public virtual void NextAbility()
         {
-            thisArmy?.Next(this)?.UniqueOption(this);
+            Next?.UniqueOption(this);
+        }
+
+        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        {
+            //NextAbility();
+            thisArmy?.AvokeUnitsNextAbility();
+
             warrior.GetAttack(Attack);
         }
     }

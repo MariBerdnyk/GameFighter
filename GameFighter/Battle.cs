@@ -1,11 +1,12 @@
 ﻿using GameFighter.Models;
 using System;
+using System.Linq;
 
 namespace GameFighter
 {
     public static class Battle
     {
-        public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null)
+        public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null, bool isStraightFight = false)
         {
             if (warrior1 == null || warrior2 == null)
             {
@@ -17,16 +18,16 @@ namespace GameFighter
                 throw new ArgumentException($"{warrior1} and {warrior2} must be alive!");
             }
 
-            while(warrior1.IsAlive)
+            while (warrior1.IsAlive)
             {
-                warrior1.Attacks(warrior2, army2, army1);
+                warrior1.Attacks(warrior2, army1, isStraightFight);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
 
-                warrior2.Attacks(warrior1, army1, army2);
+                warrior2.Attacks(warrior1, army2, isStraightFight);
             }
             return false;
         }
@@ -46,6 +47,11 @@ namespace GameFighter
             if (!army1.HasAliveUnit || !army2.HasAliveUnit)
             {
                 throw new ArgumentException($"{army1} and {army2} must have alive units!");
+            }
+
+            if (army1.ArmyMembers[0].Attack <= 0 && army2.ArmyMembers[0].Attack <= 0)
+            {
+                throw new Exception("First units must be able to attack!");
             }
 
             foreach (var item in army1.ArmyMembers)
