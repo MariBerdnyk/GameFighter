@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFighter.Weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +31,21 @@ namespace GameFighter.Models
         public abstract void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle);
 
         public virtual void UniqueOption(Warrior warrior) { }
+
+        public virtual void EquipWeapon(Weapon weapon)
+        {
+            if (!IsAlive)
+            {
+                return;
+            }
+
+            if(Health + weapon.HealthParametr < 0)
+            {
+                Health = 0;
+                return;
+            }
+
+            Health += weapon.HealthParametr;
+        }
     }
 }

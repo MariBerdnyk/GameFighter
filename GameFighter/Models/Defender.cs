@@ -1,4 +1,6 @@
-﻿namespace GameFighter.Models
+﻿using GameFighter.Weapons;
+
+namespace GameFighter.Models
 {
     public class Defender : Warrior
     {
@@ -22,6 +24,19 @@
             }
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
+        }
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            if (Defence + weapon.DefenceParametr < 0)
+            {
+                Defence = 0;
+                return;
+            }
+
+            Defence += weapon.DefenceParametr;
         }
     }
 }

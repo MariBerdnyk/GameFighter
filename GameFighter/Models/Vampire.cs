@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFighter.Weapons;
+using System;
 
 namespace GameFighter.Models
 {
@@ -29,6 +30,16 @@ namespace GameFighter.Models
             else
             {
                 Health = MaxHealth;
+            }
+        }
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            if (Vampirism + weapon.VampirismParametr < 0)
+            {
+                Vampirism = 0;
+                return;
             }
         }
     }

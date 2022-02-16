@@ -1,4 +1,6 @@
-﻿namespace GameFighter.Models
+﻿using GameFighter.Weapons;
+
+namespace GameFighter.Models
 {
     public class Healer : Warrior
     {
@@ -37,6 +39,19 @@
                 warrior.Health = warrior.MaxHealth;
                 NumberOfKit--;
             }
+        }
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            if (Heal + weapon.HealParametr < 0)
+            {
+                Heal = 0;
+                return;
+            }
+
+            Heal += weapon.HealParametr;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GameFighter.Models;
+using GameFighter.Weapons;
 using System;
 
 namespace GameFighter
@@ -25,6 +26,19 @@ namespace GameFighter
             thisArmy?.AvokeUnitsNextAbility();
 
             warrior.GetAttack(Attack);
+        }
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            if(Attack + weapon.AttackParametr < 0)
+            {
+                Attack = 0;
+                return;
+            }
+
+            Attack += weapon.AttackParametr;
         }
     }
 }
