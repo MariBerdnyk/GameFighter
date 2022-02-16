@@ -63,7 +63,7 @@ namespace GameFighterXUnitTests
             army2.AddUnits<Vampire>(6);
             army2.AddUnits<Lancer>(4);
 
-            Assert.False(Battle.StraightFight(army1, army2));
+            Assert.True(Battle.StraightFight(army1, army2));
         }
 
         [Fact]
