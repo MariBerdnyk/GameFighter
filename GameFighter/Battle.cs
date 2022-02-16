@@ -70,7 +70,6 @@ namespace GameFighter
                     }
                 }
             }
-
             return army1.HasAliveUnit;
         }
     }
