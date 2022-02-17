@@ -1,4 +1,5 @@
 ﻿using GameFighter.Weapons;
+using System;
 
 namespace GameFighter.Models
 {
@@ -29,29 +30,18 @@ namespace GameFighter.Models
                 return;
             }
 
-            if (warrior.Health + Heal <= warrior.MaxHealth)
-            {
-                warrior.Health += Heal;
-                NumberOfKit--;
-            }
-            else
-            {
-                warrior.Health = warrior.MaxHealth;
-                NumberOfKit--;
-            }
+            int plus = Math.Min(warrior.Health + Heal, warrior.MaxHealth);
+            warrior.Health = plus;
+            NumberOfKit--;
         }
 
         public override void EquipWeapon(Weapon weapon)
         {
             base.EquipWeapon(weapon);
 
-            if (Heal + weapon.HealParametr < 0)
-            {
-                Heal = 0;
-                return;
-            }
-
-            Heal += weapon.HealParametr;
+            int plus = Math.Max(Heal + weapon.HealParametr, 0);
+            Heal = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

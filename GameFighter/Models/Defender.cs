@@ -1,4 +1,5 @@
 ﻿using GameFighter.Weapons;
+using System;
 
 namespace GameFighter.Models
 {
@@ -30,13 +31,9 @@ namespace GameFighter.Models
         {
             base.EquipWeapon(weapon);
 
-            if (Defence + weapon.DefenceParametr < 0)
-            {
-                Defence = 0;
-                return;
-            }
-
-            Defence += weapon.DefenceParametr;
+            int plus = Math.Max(Defence + weapon.DefenceParametr, 0);
+            Defence = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

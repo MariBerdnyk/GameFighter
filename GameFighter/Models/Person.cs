@@ -9,6 +9,8 @@ namespace GameFighter.Models
 {
     public abstract class Person
     {
+        public readonly List<Weapon> unitsWeapons = new();
+
         public int Health { get; protected internal set; }
 
         public bool IsAlive => Health > 0;
@@ -39,15 +41,10 @@ namespace GameFighter.Models
                 return;
             }
 
-            if(Health + weapon.HealthParametr < 0)
-            {
-                Health = 0;
-                MaxHealth = 0;
-                return;
-            }
-
-            Health += weapon.HealthParametr;
-            MaxHealth += weapon.HealthParametr;
+            int plus = Math.Max(Health + weapon.HealthParametr, 0);
+            Health = plus;
+            MaxHealth = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

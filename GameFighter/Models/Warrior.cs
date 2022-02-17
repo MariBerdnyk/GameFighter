@@ -32,13 +32,9 @@ namespace GameFighter
         {
             base.EquipWeapon(weapon);
 
-            if(Attack + weapon.AttackParametr < 0)
-            {
-                Attack = 0;
-                return;
-            }
-
-            Attack += weapon.AttackParametr;
+            int plus = Math.Max(Attack + weapon.AttackParametr, 0);
+            Attack = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

@@ -36,13 +36,9 @@ namespace GameFighter.Models
         {
             base.EquipWeapon(weapon);
 
-            if (Vampirism + weapon.VampirismParametr < 0)
-            {
-                Vampirism = 0;
-                return;
-            }
-
-            Vampirism += weapon.VampirismParametr;
+            int plus = Math.Max(Vampirism + weapon.VampirismParametr, 0);
+            Vampirism = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }
