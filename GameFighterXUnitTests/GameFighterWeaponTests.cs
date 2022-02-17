@@ -144,5 +144,104 @@ namespace GameFighterXUnitTests
 
             Assert.True(Battle.Fight(army1, army2));
         }
+
+        [Fact]
+        public void Fight_3VampireWeaponVs1Warrior2DefenderWeapon_ReturnFalse()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Vampire>(3);
+
+            army2.AddUnits<Warrior>(1);
+            army2.AddUnits<Defender>(2);
+
+            var weapon1 = new Weapon(-20, 1, 1, 40, -2);
+            var weapon2 = new Weapon(20, 2, 2, -55, 3);
+
+            army1.ArmyMembers[0].EquipWeapon(weapon1);
+            army1.ArmyMembers[1].EquipWeapon(weapon1);
+            army1.ArmyMembers[2].EquipWeapon(weapon2);
+
+            army2.ArmyMembers[0].EquipWeapon(weapon1);
+            army2.ArmyMembers[1].EquipWeapon(weapon2);
+            army2.ArmyMembers[2].EquipWeapon(weapon2);
+
+            Assert.False(Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_2Vampire2RookieKatanaShieldVs1Warrior2DefenderKatanaShield_ReturnTrue()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Vampire>(2);
+            army1.AddUnits<Rookie>(2);
+
+            army2.AddUnits<Warrior>(1);
+            army2.AddUnits<Defender>(2);
+
+            var weapon1 = new Katana();
+            var weapon2 = new Shield();
+
+            army1.ArmyMembers[0].EquipWeapon(weapon1);
+            army1.ArmyMembers[1].EquipWeapon(weapon1);
+            army1.ArmyMembers[2].EquipWeapon(weapon2);
+
+            army2.ArmyMembers[0].EquipWeapon(weapon1);
+            army2.ArmyMembers[1].EquipWeapon(weapon2);
+            army2.ArmyMembers[2].EquipWeapon(weapon2);
+
+            Assert.True(Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_3VampireGreatAxeVs1Warrior1DefenderSword_ReturnTrue()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Vampire>(3);
+
+            army2.AddUnits<Warrior>(1);
+            army2.AddUnits<Defender>(1);
+
+            var weapon1 = new GreatAxe();
+            var weapon2 = new Sword();
+
+            army1.ArmyMembers[0].EquipWeapon(weapon1);
+            army1.ArmyMembers[1].EquipWeapon(weapon1);
+            army1.ArmyMembers[2].EquipWeapon(weapon1);
+
+            army2.ArmyMembers[0].EquipWeapon(weapon2);
+            army2.ArmyMembers[1].EquipWeapon(weapon2);
+
+            Assert.True(Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_3RookieKatanaVs1Defender1HealerMagicWand_ReturnFalse()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Rookie>(3);
+
+            army2.AddUnits<Defender>(1);
+            army2.AddUnits<Healer>(1);
+
+            var weapon1 = new Katana();
+            var weapon2 = new MagicWand();
+
+            army1.ArmyMembers[0].EquipWeapon(weapon1);
+            army1.ArmyMembers[1].EquipWeapon(weapon1);
+            army1.ArmyMembers[2].EquipWeapon(weapon1);
+
+            army2.ArmyMembers[0].EquipWeapon(weapon2);
+            army2.ArmyMembers[1].EquipWeapon(weapon2);
+
+            Assert.False(Battle.Fight(army1, army2));
+        }
     }
 }
