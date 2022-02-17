@@ -20,15 +20,24 @@ namespace GameFighter
 
             while (warrior1.IsAlive)
             {
+                Console.WriteLine();
+                Console.Write(warrior1 + " | "+ warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
+                Console.WriteLine();
                 warrior1.Attacks(warrior2, army1);
+
+                Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
-
+                
                 warrior2.Attacks(warrior1, army2);
+                Console.WriteLine();
+                Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
             }
+            Console.WriteLine();
+            Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
             return false;
         }
 

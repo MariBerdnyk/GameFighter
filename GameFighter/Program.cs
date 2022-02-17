@@ -53,15 +53,23 @@ namespace GameFighter
 
             //Console.WriteLine(Battle.Fight(army1, army2));
 
+            //var defender = new Defender();
+            //var vampire = new Vampire();
+
+            //defender.EquipWeapon(new Shield());
+            //defender.EquipWeapon(new MagicWand());
+            //vampire.EquipWeapon(new Shield());
+            //vampire.EquipWeapon(new Katana());
+
+            //Battle.Fight(defender, vampire);
+
             var defender = new Defender();
-            var vampire = new Vampire();
+            var lancer = new Lancer();
 
             defender.EquipWeapon(new Shield());
-            defender.EquipWeapon(new MagicWand());
-            vampire.EquipWeapon(new Shield());
-            vampire.EquipWeapon(new Katana());
+            lancer.EquipWeapon(new GreatAxe());
 
-            Battle.Fight(defender, vampire);
+            Battle.Fight(defender, lancer);
         }
     }
 }
