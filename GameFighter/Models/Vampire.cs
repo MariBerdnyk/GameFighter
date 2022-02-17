@@ -16,7 +16,7 @@ namespace GameFighter.Models
             MaxHealth = 40;
         }
 
-        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        public override void Attacks(Warrior warrior, Army thisArmy)
         {
             thisArmy?.AvokeUnitsNextAbility();
             //NextAbility();

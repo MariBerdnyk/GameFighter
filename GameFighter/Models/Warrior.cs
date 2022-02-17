@@ -20,7 +20,7 @@ namespace GameFighter
             Next?.UniqueOption(this);
         }
 
-        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        public override void Attacks(Warrior warrior, Army thisArmy)
         {
             //NextAbility();
             thisArmy?.AvokeUnitsNextAbility();

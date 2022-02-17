@@ -6,7 +6,7 @@ namespace GameFighter
 {
     public static class Battle
     {
-        public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null, bool isStraightFight = false)
+        public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null)
         {
             if (warrior1 == null || warrior2 == null)
             {
@@ -20,14 +20,14 @@ namespace GameFighter
 
             while (warrior1.IsAlive)
             {
-                warrior1.Attacks(warrior2, army1, isStraightFight);
+                warrior1.Attacks(warrior2, army1);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
 
-                warrior2.Attacks(warrior1, army2, isStraightFight);
+                warrior2.Attacks(warrior1, army2);
             }
             return false;
         }
@@ -99,7 +99,7 @@ namespace GameFighter
             {
                 foreach (var (first, second) in army1.ArmyMembers.Where(x => x.IsAlive).Zip(army2.ArmyMembers.Where(x => x.IsAlive)))
                 {
-                    Fight(first, second, null, null, true);
+                    Fight(first, second);
                 }
 
             } while (army1.HasAliveUnit && army2.HasAliveUnit);

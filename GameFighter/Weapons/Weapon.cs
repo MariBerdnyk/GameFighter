@@ -20,6 +20,7 @@
             VampirismParametr = vampirismParametr;
             HealParametr = healParametr;
         }
+
         public Weapon() { }
     }
 }
