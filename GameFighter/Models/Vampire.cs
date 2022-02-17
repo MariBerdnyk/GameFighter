@@ -32,6 +32,7 @@ namespace GameFighter.Models
                 Health = MaxHealth;
             }
         }
+        
         public override void EquipWeapon(Weapon weapon)
         {
             base.EquipWeapon(weapon);
