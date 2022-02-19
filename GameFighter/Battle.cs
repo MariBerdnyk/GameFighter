@@ -126,8 +126,8 @@ namespace GameFighter
                 throw new Exception("First units must be able to attack!");
             }
 
-            army1.MoveUnitsStraightBattle();
-            army2.MoveUnitsStraightBattle();
+            army1.PrepareArmyForStraightBattle();
+            army2.PrepareArmyForStraightBattle();
 
             do
             {
