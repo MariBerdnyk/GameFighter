@@ -24,10 +24,7 @@ namespace GameFighter.Models
 
         public void AvokeUnitsNextAbility()
         {
-            foreach (var item in ArmyMembers)
-            {
-                item.NextAbility();
-            }
+            ArmyMembers.ForEach(x => x.NextAbility());
         }
 
         public void AddUnits<T>(int number) where T : Warrior, new()
