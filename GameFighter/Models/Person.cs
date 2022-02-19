@@ -6,6 +6,8 @@ namespace GameFighter.Models
 {
     public abstract class Person
     {
+        private Warrior next = default;
+
         public readonly List<Weapon> unitsWeapons = new();
 
         public int Health { get; protected internal set; }
@@ -16,7 +18,25 @@ namespace GameFighter.Models
 
         public int DefaultHealth { get; protected set; }
 
-        public Warrior Next { get; set; } = default;
+        public Warrior Next
+        {
+            get
+            {
+                var unitAfter = next;
+
+                while (unitAfter != null && !unitAfter.IsAlive)
+                {
+                    unitAfter = unitAfter.Next;
+                }
+
+                return unitAfter;
+            }
+
+            protected internal set
+            {
+                next = value;
+            }
+        }
 
         public virtual void PrepareForBattle() { }
 

@@ -26,7 +26,6 @@ namespace GameFighter.Models
 
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
-            //NextAbility();
             thisArmy?.AvokeUnitsNextAbility();
 
             warrior.GetAttack(Attack);

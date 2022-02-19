@@ -11,18 +11,10 @@
 
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
-            //NextAbility();
             thisArmy?.AvokeUnitsNextAbility();
             var actualAttack = warrior.GetAttack(Attack);
 
-            var unitAfter = warrior.Next;
-
-            while (unitAfter != null && !unitAfter.IsAlive)
-            {
-                unitAfter = unitAfter.Next;
-            }
-
-            unitAfter?.GetAttack(actualAttack * 50 / 100);
+            warrior.Next?.GetAttack(actualAttack * 50 / 100);
         }
     }
 }
