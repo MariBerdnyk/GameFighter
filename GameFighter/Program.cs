@@ -64,8 +64,8 @@ namespace GameFighter
             var army1 = new Army();
             var army2 = new Army();
 
-            army1.AddUnits<Angel>(1);
-            army1.AddUnits<Lancer>(1);
+            army1.AddUnits<Angel>(2);
+            army1.AddUnits<Lancer>(2);
             army1.AddUnits<Healer>(1);
             army1.AddUnits<Warlord>(1);
 
