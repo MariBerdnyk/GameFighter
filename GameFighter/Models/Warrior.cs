@@ -2,7 +2,7 @@
 using GameFighter.Weapons;
 using System;
 
-namespace GameFighter
+namespace GameFighter.Models
 {
     public class Warrior : Person
     {
@@ -41,6 +41,7 @@ namespace GameFighter
             if (Health <= 0)
             {
                 Next?.PrepareForBattle(this);
+                return beforeFightHealth;
             }
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;

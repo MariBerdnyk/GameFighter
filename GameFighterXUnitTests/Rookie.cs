@@ -1,4 +1,4 @@
-﻿using GameFighter;
+﻿using GameFighter.Models;
 
 namespace GameFighterXUnitTests
 {

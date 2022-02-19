@@ -1,5 +1,4 @@
 ﻿using GameFighter.Models;
-using GameFighter.Models.OwnTask;
 using GameFighter.Weapons;
 
 namespace GameFighter
@@ -65,10 +64,13 @@ namespace GameFighter
             var army1 = new Army();
             var army2 = new Army();
 
-            army1.AddUnits<Lancer>(1);
             army1.AddUnits<Angel>(1);
+            army1.AddUnits<Lancer>(1);
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Warlord>(1);
 
-            army2.AddUnits<Knight>(2);
+            army2.AddUnits<Warrior>(7);
+            army2.AddUnits<Warlord>(1);
 
             Battle.Fight(army1, army2);
         }

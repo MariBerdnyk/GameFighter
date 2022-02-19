@@ -26,6 +26,12 @@ namespace GameFighter.Models
                 Health -= attack - Defence;
             }
 
+            if (Health <= 0)
+            {
+                Next?.PrepareForBattle(this);
+                return beforeFightHealth;
+            }
+
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 

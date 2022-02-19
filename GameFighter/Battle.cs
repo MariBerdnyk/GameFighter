@@ -69,6 +69,7 @@ namespace GameFighter
                         if (isUnitAlive && !Fight(army1.ArmyMembers[i], army2.ArmyMembers[j], army1, army2))
                         {
                             army1.MoveUnits();
+                            army2.MoveUnits();
                             i = -1;
 
                             break;
@@ -76,6 +77,7 @@ namespace GameFighter
 
                         else if(isUnitAlive)
                         {
+                            army1.MoveUnits();
                             army2.MoveUnits();
                             j = -1;
                         }

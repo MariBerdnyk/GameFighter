@@ -1,7 +1,7 @@
 ﻿using GameFighter.Weapons;
 using System;
 
-namespace GameFighter.Models.OwnTask
+namespace GameFighter.Models
 {
     public class Angel : Warrior
     {
