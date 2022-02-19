@@ -33,7 +33,7 @@ namespace GameFighter.Models
                 return beforeFightHealth;
             }
 
-            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
+            return beforeFightHealth - Health;
         }
 
         public override void EquipWeapon(Weapon weapon)
