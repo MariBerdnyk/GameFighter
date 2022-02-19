@@ -1,6 +1,5 @@
 ﻿using GameFighter;
 using GameFighter.Models;
-using System;
 using Xunit;
 
 namespace GameFighterXUnitTests

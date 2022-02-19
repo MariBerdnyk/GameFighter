@@ -1,5 +1,4 @@
-﻿using GameFighter.Models;
-using GameFighter.Weapons;
+﻿using GameFighter.Weapons;
 using System;
 
 namespace GameFighter.Models

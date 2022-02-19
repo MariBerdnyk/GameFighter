@@ -1,9 +1,6 @@
 ﻿using GameFighter.Weapons;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GameFighter.Models
 {
@@ -23,7 +20,7 @@ namespace GameFighter.Models
 
         public virtual void PrepareForBattle() { }
 
-        public abstract void Attacks(Warrior warrior, Army thisArmy);
+        public virtual void PrepareForBattle(Warrior warrior) { }
 
         public virtual void UniqueOption(Warrior warrior) { }
 
@@ -40,6 +37,6 @@ namespace GameFighter.Models
             unitsWeapons.Add(weapon);
         }
 
-        public virtual void PrepareForBattle(Warrior warrior) { }
+        public abstract void Attacks(Warrior warrior, Army thisArmy);
     }
 }
