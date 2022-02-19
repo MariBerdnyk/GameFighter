@@ -7,6 +7,8 @@ namespace GameFighter
         public Knight()
         {
             Attack = 7;
+
+            DefaultAttack = Attack;
         }
     }
 }

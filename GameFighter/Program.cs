@@ -1,4 +1,5 @@
 ﻿using GameFighter.Models;
+using GameFighter.Weapons;
 using System;
 
 namespace GameFighter
@@ -7,6 +8,7 @@ namespace GameFighter
     {
         static void Main(string[] args)
         {
+
             //var chuck = new Warrior();
             //var bruce = new Warrior();
             //var carl = new Knight();
@@ -51,23 +53,23 @@ namespace GameFighter
 
             //Console.WriteLine(Battle.Fight(army1, army2));
 
-            var army1 = new Army();
-            var army2 = new Army();
+            //var defender = new Defender();
+            //var vampire = new Vampire();
 
-            army1.AddUnits<Lancer>(7);
-            army1.AddUnits<Vampire>(3);
-            army1.AddUnits<Healer>(1);
-            army1.AddUnits<Warrior>(4);
-            army1.AddUnits<Healer>(1);
-            army1.AddUnits<Defender>(2);
+            //defender.EquipWeapon(new Shield());
+            //defender.EquipWeapon(new MagicWand());
+            //vampire.EquipWeapon(new Shield());
+            //vampire.EquipWeapon(new Katana());
 
-            army2.AddUnits<Warrior>(4);
-            army2.AddUnits<Defender>(4);
-            army2.AddUnits<Healer>(1);
-            army2.AddUnits<Vampire>(6);
-            army2.AddUnits<Lancer>(4);
+            //Battle.Fight(defender, vampire);
 
-            Battle.StraightFight(army1, army2);
+            var defender = new Defender();
+            var lancer = new Lancer();
+
+            defender.EquipWeapon(new Shield());
+            lancer.EquipWeapon(new GreatAxe());
+
+            Battle.Fight(defender, lancer);
         }
     }
 }

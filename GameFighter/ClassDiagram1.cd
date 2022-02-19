@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameFighter.Warrior" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABBAAAAIAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Models\Warrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFighter.Models.Vampire" Collapsed="true">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Vampire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFighter.Models.Healer" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAABAIAEAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\Healer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

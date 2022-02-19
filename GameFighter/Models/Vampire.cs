@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFighter.Weapons;
+using System;
 
 namespace GameFighter.Models
 {
@@ -13,9 +14,10 @@ namespace GameFighter.Models
             Vampirism = 50;
 
             MaxHealth = 40;
+            DefaultAttack = Attack;
         }
 
-        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        public override void Attacks(Warrior warrior, Army thisArmy)
         {
             thisArmy?.AvokeUnitsNextAbility();
             //NextAbility();
@@ -30,6 +32,15 @@ namespace GameFighter.Models
             {
                 Health = MaxHealth;
             }
+        }
+        
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            int plus = Math.Max(Vampirism + weapon.VampirismParametr, 0);
+            Vampirism = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

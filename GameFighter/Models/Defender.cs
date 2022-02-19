@@ -1,4 +1,7 @@
-﻿namespace GameFighter.Models
+﻿using GameFighter.Weapons;
+using System;
+
+namespace GameFighter.Models
 {
     public class Defender : Warrior
     {
@@ -10,6 +13,8 @@
             Attack = 3;
             Defence = 2;
             MaxHealth = 60;
+
+            DefaultAttack = Attack;
         }
 
         public override int GetAttack(int attack)
@@ -22,6 +27,15 @@
             }
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
+        }
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            int plus = Math.Max(Defence + weapon.DefenceParametr, 0);
+            Defence = plus;
+            unitsWeapons.Add(weapon);
         }
     }
 }

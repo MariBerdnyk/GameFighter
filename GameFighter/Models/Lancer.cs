@@ -7,25 +7,24 @@ namespace GameFighter.Models
         public Lancer()
         {
             Attack = 6;
+
+            DefaultAttack = Attack;
         }
 
-        public override void Attacks(Warrior warrior, Army thisArmy, bool isStraightBattle)
+        public override void Attacks(Warrior warrior, Army thisArmy)
         {
             //NextAbility();
             thisArmy?.AvokeUnitsNextAbility();
             var actualAttack = warrior.GetAttack(Attack);
 
-            if (!isStraightBattle)
+            var unitAfter = warrior.Next;
+
+            while (unitAfter != null && !unitAfter.IsAlive)
             {
-                var unitAfter = warrior.Next;
-
-                while (unitAfter != null && !unitAfter.IsAlive)
-                {
-                    unitAfter = unitAfter.Next;
-                }
-
-                unitAfter?.GetAttack(actualAttack * 50 / 100);
+                unitAfter = unitAfter.Next;
             }
+
+            unitAfter?.GetAttack(actualAttack * 50 / 100);
         }
     }
 }

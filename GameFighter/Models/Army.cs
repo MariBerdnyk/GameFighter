@@ -26,9 +26,10 @@ namespace GameFighter.Models
 
         public void PrepareArmyForBattle()
         {
-            foreach (var item in ArmyMembers)
+            for (int i = 1; i < CountUnits; i++)
             {
-                item.PrepareForBattle();
+                ArmyMembers[i - 1].PrepareForBattle();
+                ArmyMembers[i - 1].Next = ArmyMembers[i];
             }
         }
 
@@ -45,11 +46,6 @@ namespace GameFighter.Models
             while (number > 0)
             {
                 T unit = new();
-
-                if (CountUnits > 0)
-                {
-                    ArmyMembers[CountUnits - 1].Next = unit;
-                }
 
                 ArmyMembers.Add(unit);
                 number--;
