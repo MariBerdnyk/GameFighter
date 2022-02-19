@@ -15,7 +15,11 @@ namespace GameFighter.Models
 
         public void MoveUnits()
         {
-            ArmyMembers = FindWarlord?.MoveUnits(ArmyMembers);
+            var units = FindWarlord?.MoveUnits(ArmyMembers);
+            if (units != null)
+            {
+                ArmyMembers = units;
+            }
         }
 
         public void PrepareArmyForBattle()
@@ -25,6 +29,7 @@ namespace GameFighter.Models
                 ArmyMembers[i - 1].PrepareForBattle();
                 ArmyMembers[i - 1].Next = ArmyMembers[i];
             }
+            MoveUnits();
         }
 
         public void AvokeUnitsNextAbility()

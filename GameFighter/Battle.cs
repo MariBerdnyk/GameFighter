@@ -66,7 +66,12 @@ namespace GameFighter
                     {
                         if (item2.IsAlive && !Fight(item, item2, army1, army2))
                         {
+                            army1.MoveUnits();
                             break;
+                        }
+                        else if (item2.IsAlive)
+                        {
+                            army2.MoveUnits();
                         }
                     }
                 }
