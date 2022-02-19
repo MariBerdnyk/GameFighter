@@ -7,7 +7,6 @@ namespace GameFighter
     {
         static void Main(string[] args)
         {
-
             //var chuck = new Warrior();
             //var bruce = new Warrior();
             //var carl = new Knight();
