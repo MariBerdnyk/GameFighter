@@ -10,5 +10,10 @@
             MaxHealth = Health;
             DefaultAttack = Attack;
         }
+
+        public void MoveUnits(Army army)
+        {
+
+        }
     }
 }

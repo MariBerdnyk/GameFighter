@@ -11,11 +11,11 @@ namespace GameFighter.Models
 
         public bool HasAliveUnit => ArmyMembers.Any(x => x.IsAlive);
         
-        public int FindWarlord => ArmyMembers.FindIndex(x => x is Warlord);
+        public Warlord FindWarlord => (Warlord)ArmyMembers.FirstOrDefault(x => x is Warlord);
 
         public void MoveUnits()
         {
-
+            FindWarlord?.MoveUnits(this);
         }
 
         public void PrepareArmyForBattle()
