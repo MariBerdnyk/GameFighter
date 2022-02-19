@@ -16,6 +16,8 @@ namespace GameFighter.Models
             Heal = 2;
 
             MaxHealth = 60;
+
+            DefaultAttack = Attack;
         }
 
         public override void PrepareForBattle()

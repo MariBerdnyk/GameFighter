@@ -7,6 +7,8 @@ namespace GameFighter.Models
         public Lancer()
         {
             Attack = 6;
+
+            DefaultAttack = Attack;
         }
 
         public override void Attacks(Warrior warrior, Army thisArmy)

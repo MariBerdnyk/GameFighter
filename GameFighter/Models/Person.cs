@@ -15,7 +15,7 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
-        public int MaxHealth { get; protected internal set; }
+        public int MaxHealth { get; protected set; }
 
         public Warrior Next { get; set; } = default;
 

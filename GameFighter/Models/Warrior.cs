@@ -8,11 +8,15 @@ namespace GameFighter
     {
         public int Attack { get; protected set; }
 
+        public int DefaultAttack { get; protected set; }
+
         public Warrior()
         {
             Health = 50;
             Attack = 5;
             MaxHealth = 50;
+
+            DefaultAttack = Attack;
         }
 
         public virtual void NextAbility()
@@ -31,6 +35,11 @@ namespace GameFighter
         public override void EquipWeapon(Weapon weapon)
         {
             base.EquipWeapon(weapon);
+
+            if(DefaultAttack == 0)
+            {
+                return;
+            }
 
             int plus = Math.Max(Attack + weapon.AttackParametr, 0);
             Attack = plus;

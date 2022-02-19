@@ -14,6 +14,7 @@ namespace GameFighter.Models
             Vampirism = 50;
 
             MaxHealth = 40;
+            DefaultAttack = Attack;
         }
 
         public override void Attacks(Warrior warrior, Army thisArmy)

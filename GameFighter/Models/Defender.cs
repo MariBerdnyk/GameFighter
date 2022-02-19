@@ -13,6 +13,8 @@ namespace GameFighter.Models
             Attack = 3;
             Defence = 2;
             MaxHealth = 60;
+
+            DefaultAttack = Attack;
         }
 
         public override int GetAttack(int attack)
