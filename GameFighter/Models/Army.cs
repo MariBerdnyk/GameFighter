@@ -13,11 +13,20 @@ namespace GameFighter.Models
         
         public Warlord FindWarlord => (Warlord)ArmyMembers.FirstOrDefault(x => x is Warlord);
 
-        public void MoveUnits()
+        private void Restock()
         {
-            MoveUnitsStraightBattle();
-            SetNextArmy();
+            ArmyMembers.ForEach(x => x.PrepareForBattle());
         }
+
+        private void SetNextArmy()
+        {
+            for (int i = 1; i < CountUnits; i++)
+            {
+                ArmyMembers[i - 1].Next = ArmyMembers[i];
+            }
+            ArmyMembers[CountUnits - 1].Next = null;
+        }
+
 
         private void MoveUnitsStraightBattle()
         {
@@ -28,9 +37,10 @@ namespace GameFighter.Models
             }
         }
 
-        private void Restock()
+        public void MoveUnits()
         {
-            ArmyMembers.ForEach(x => x.PrepareForBattle());
+            MoveUnitsStraightBattle();
+            SetNextArmy();
         }
 
         public void PrepareArmyForBattle()
@@ -41,17 +51,8 @@ namespace GameFighter.Models
 
         public void PrepareArmyForStraightBattle()
         {
-            Restock();
             MoveUnitsStraightBattle();
-        }
-
-        private void SetNextArmy()
-        {
-            for (int i = 1; i < CountUnits; i++)
-            {
-                ArmyMembers[i - 1].Next = ArmyMembers[i];
-            }
-            ArmyMembers[CountUnits - 1].Next = null;
+            Restock();
         }
 
         public void AvokeUnitsNextAbility()
