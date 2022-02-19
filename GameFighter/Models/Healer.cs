@@ -16,6 +16,7 @@ namespace GameFighter.Models
             Heal = 2;
 
             MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             DefaultAttack = Attack;
         }
 
@@ -26,7 +27,7 @@ namespace GameFighter.Models
 
         public override void UniqueOption(Warrior warrior)
         {
-            if (warrior.Health == warrior.MaxHealth || NumberOfKit <= 0)
+            if (!IsAlive || warrior.Health == warrior.MaxHealth || NumberOfKit <= 0 || !warrior.IsAlive)
             {
                 return;
             }

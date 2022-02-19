@@ -1,8 +1,7 @@
-﻿using GameFighter.Models;
-using GameFighter.Weapons;
+﻿using GameFighter.Weapons;
 using System;
 
-namespace GameFighter
+namespace GameFighter.Models
 {
     public class Warrior : Person
     {
@@ -16,6 +15,7 @@ namespace GameFighter
             Attack = 5;
 
             MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             DefaultAttack = Attack;
         }
 
@@ -26,10 +26,24 @@ namespace GameFighter
 
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
-            //NextAbility();
             thisArmy?.AvokeUnitsNextAbility();
 
             warrior.GetAttack(Attack);
+        }
+
+        public virtual int GetAttack(int attack)
+        {
+            int beforeFightHealth = Health;
+
+            Health -= attack;
+
+            if (Health <= 0)
+            {
+                Next?.PrepareForBattle(this);
+                return beforeFightHealth;
+            }
+
+            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
         }
 
         public override void EquipWeapon(Weapon weapon)

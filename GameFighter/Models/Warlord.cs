@@ -11,6 +11,7 @@ namespace GameFighter.Models
             Attack = 4;
 
             MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             DefaultAttack = Attack;
         }
 
@@ -23,6 +24,8 @@ namespace GameFighter.Models
             List<Warrior> healers = new();
             List<Warrior> deadUnits = new();
             List<Warrior> others = new();
+            List<Warrior> angels = new();
+
 
             foreach (var item in army)
             {
@@ -42,9 +45,39 @@ namespace GameFighter.Models
                 {
                     warlords.Add(item);
                 }
+                else if(item is Angel)
+                {
+                    angels.Add(item);
+                }
                 else
                 {
                     others.Add(item);
+                }
+            }
+
+            if(lancers.Count > 0 && angels.Count > 0)
+            {
+                var tempCol = lancers.Where(x => x.MaxHealth == x.DefaultHealth).Zip(angels).ToList();
+                foreach (var (first, second) in tempCol)
+                {
+                    newArmy.Add(first);
+                    newArmy.Add(second);
+
+                    lancers.Remove(first);
+                    angels.Remove(second);
+                }
+            }
+
+            if(others.Count > 0 && angels.Count > 0)
+            {
+                var tempCol = others.Where(x => x.MaxHealth == x.DefaultHealth).Zip(angels).ToList();
+                foreach (var (first, second) in tempCol)
+                {
+                    newArmy.Add(first);
+                    newArmy.Add(second);
+
+                    others.Remove(first);
+                    angels.Remove(second);
                 }
             }
 
@@ -53,8 +86,7 @@ namespace GameFighter.Models
                 newArmy.Add(lancers.First());
                 lancers.RemoveAt(0);
             }
-
-            else if(others.Count > 0)
+            else if (others.Count > 0)
             {
                 newArmy.Add(others.First());
                 others.RemoveAt(0);
@@ -62,6 +94,7 @@ namespace GameFighter.Models
             newArmy.AddRange(healers);
             newArmy.AddRange(lancers);
             newArmy.AddRange(others);
+            newArmy.AddRange(angels);
             newArmy.AddRange(warlords);
             newArmy.AddRange(deadUnits);
 

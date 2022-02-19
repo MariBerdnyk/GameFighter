@@ -27,7 +27,6 @@ namespace GameFighter.Models
             ArmyMembers[CountUnits - 1].Next = null;
         }
 
-
         private void MoveUnitsStraightBattle()
         {
             var units = FindWarlord?.MoveUnits(ArmyMembers);
