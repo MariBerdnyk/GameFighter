@@ -7,9 +7,10 @@ namespace GameFighter.Models.OwnTask
     {
         public Angel()
         {
-            Attack = 0;
-            DefaultAttack = 0;
             Health = 1;
+            Attack = 0;
+
+            DefaultAttack = 0;
             MaxHealth = 1;
         }
 
@@ -20,6 +21,14 @@ namespace GameFighter.Models.OwnTask
 
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
+            Health--;
+        }
+
+        public override void PrepareForBattle(Warrior warrior)
+        {
+            warrior.Health = warrior.MaxHealth * 50 / 100;
+            warrior.MaxHealth = warrior.Health;
+
             Health--;
         }
 

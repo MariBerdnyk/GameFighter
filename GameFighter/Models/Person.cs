@@ -15,20 +15,11 @@ namespace GameFighter.Models
 
         public bool IsAlive => Health > 0;
 
-        public int MaxHealth { get; protected set; }
+        public int MaxHealth { get; protected internal set; }
 
         public Warrior Next { get; set; } = default;
 
         public virtual void PrepareForBattle() { }
-
-        public virtual int GetAttack(int attack)
-        {
-            int beforeFightHealth = Health;
-
-            Health -= attack;
-
-            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
-        }
 
         public abstract void Attacks(Warrior warrior, Army thisArmy);
 
@@ -46,5 +37,7 @@ namespace GameFighter.Models
             MaxHealth = plus;
             unitsWeapons.Add(weapon);
         }
+
+        public virtual void PrepareForBattle(Warrior warrior) { }
     }
 }

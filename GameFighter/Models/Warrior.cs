@@ -32,6 +32,20 @@ namespace GameFighter
             warrior.GetAttack(Attack);
         }
 
+        public virtual int GetAttack(int attack)
+        {
+            int beforeFightHealth = Health;
+
+            Health -= attack;
+
+            if (Health <= 0)
+            {
+                Next.PrepareForBattle(this);
+            }
+
+            return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;
+        }
+
         public override void EquipWeapon(Weapon weapon)
         {
             base.EquipWeapon(weapon);
