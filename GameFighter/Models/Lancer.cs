@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameFighter.Models
+﻿namespace GameFighter.Models
 {
     public class Lancer : Warrior
     {
