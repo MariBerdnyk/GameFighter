@@ -30,10 +30,7 @@ namespace GameFighter.Models
 
         private void Restock()
         {
-            for (int i = 1; i < CountUnits; i++)
-            {
-                ArmyMembers[i - 1].PrepareForBattle();
-            }
+            ArmyMembers.ForEach(x => x.PrepareForBattle());
         }
 
         public void PrepareArmyForBattle()
