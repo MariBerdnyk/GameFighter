@@ -14,7 +14,7 @@
 
         public override void UniqueOption(Warrior warrior)
         {
-            if (warrior.Attack == warrior.ChangedAttack)
+            if (IsAlive && warrior.Attack == warrior.ChangedAttack)
             {
                 warrior.Attack += RangedAttack;
             }
