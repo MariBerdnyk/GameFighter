@@ -5,24 +5,13 @@ namespace GameFighter.Models
 {
     public class Army
     {
-        public readonly List<Warrior> ArmyMembers = new List<Warrior>();
+        public readonly List<Warrior> ArmyMembers = new ();
 
         public int CountUnits => ArmyMembers.Count;
 
-        public bool HasAliveUnit
-        {
-            get
-            {
-                foreach (var item in ArmyMembers)
-                {
-                    if (item.IsAlive)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
+        public bool HasAliveUnit => ArmyMembers.Any(x => x.IsAlive);
+        
+        public bool HasWarlord => ArmyMembers.Any(x => x is Warlord);
 
         public void PrepareArmyForBattle()
         {
