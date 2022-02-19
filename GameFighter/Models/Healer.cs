@@ -21,7 +21,7 @@ namespace GameFighter.Models
 
         public override void PrepareForBattle()
         {
-            NumberOfKit = 10;
+            NumberOfKit = 100;
         }
 
         public override void UniqueOption(Warrior warrior)

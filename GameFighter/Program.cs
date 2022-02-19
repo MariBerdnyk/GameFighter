@@ -1,6 +1,5 @@
 ﻿using GameFighter.Models;
 using GameFighter.Weapons;
-using System;
 
 namespace GameFighter
 {
@@ -62,14 +61,6 @@ namespace GameFighter
             //vampire.EquipWeapon(new Katana());
 
             //Battle.Fight(defender, vampire);
-
-            var defender = new Defender();
-            var lancer = new Lancer();
-
-            defender.EquipWeapon(new Shield());
-            lancer.EquipWeapon(new GreatAxe());
-
-            Battle.Fight(defender, lancer);
         }
     }
 }

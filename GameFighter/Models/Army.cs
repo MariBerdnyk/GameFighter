@@ -11,9 +11,25 @@ namespace GameFighter.Models
 
         public bool HasAliveUnit => ArmyMembers.Any(x => x.IsAlive);
         
-        public Warlord FindWarlord => (Warlord)ArmyMembers.FirstOrDefault(x => x is Warlord);
-
+        public Warlord FindWarlord
+        {
+            get
+            {
+                var warlord = (Warlord)ArmyMembers.FirstOrDefault(x => x is Warlord);
+                return warlord;
+            }
+        }
         public void MoveUnits()
+        {
+            var units = FindWarlord?.MoveUnits(ArmyMembers);
+            if (units != null)
+            {
+                ArmyMembers = units;
+            }
+            SetNextArmy();
+        }
+
+        public void MoveUnitsStraightBattle()
         {
             var units = FindWarlord?.MoveUnits(ArmyMembers);
             if (units != null)
@@ -24,12 +40,25 @@ namespace GameFighter.Models
 
         public void PrepareArmyForBattle()
         {
+            MoveUnits();
             for (int i = 1; i < CountUnits; i++)
             {
                 ArmyMembers[i - 1].PrepareForBattle();
-                ArmyMembers[i - 1].Next = ArmyMembers[i];
             }
-            MoveUnits();
+        }
+
+        private void SetNextArmy()
+        {
+            for (int i = 1; i < CountUnits; i++)
+            {
+                SetNext(i);
+            }
+            ArmyMembers[CountUnits - 1].Next = null;
+        }
+
+        private void SetNext(int index)
+        {
+            ArmyMembers[index - 1].Next = ArmyMembers[index];
         }
 
         public void AvokeUnitsNextAbility()
@@ -42,6 +71,11 @@ namespace GameFighter.Models
             while (number > 0)
             {
                 T unit = new();
+
+                if (unit is Warlord && FindWarlord != null)
+                {
+                    return;
+                }
 
                 ArmyMembers.Add(unit);
                 number--;

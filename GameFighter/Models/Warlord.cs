@@ -54,6 +54,11 @@ namespace GameFighter.Models
                 lancers.RemoveAt(0);
             }
 
+            else if(others.Count > 0)
+            {
+                newArmy.Add(others.First());
+                others.RemoveAt(0);
+            }
             newArmy.AddRange(healers);
             newArmy.AddRange(lancers);
             newArmy.AddRange(others);
