@@ -17,7 +17,8 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override void PrepareForBattle()

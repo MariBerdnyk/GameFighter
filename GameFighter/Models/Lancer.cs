@@ -6,7 +6,8 @@
         {
             Attack = 6;
 
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override void Attacks(Warrior warrior, Army thisArmy)
@@ -15,6 +16,8 @@
             var actualAttack = warrior.GetAttack(Attack);
 
             warrior.Next?.GetAttack(actualAttack * 50 / 100);
+
+            Attack = ChangedAttack;
         }
     }
 }

@@ -8,7 +8,8 @@ namespace GameFighter
         {
             Attack = 7;
 
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
     }
 }

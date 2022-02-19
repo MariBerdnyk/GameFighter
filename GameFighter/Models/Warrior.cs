@@ -5,7 +5,9 @@ namespace GameFighter.Models
 {
     public class Warrior : Person
     {
-        public int Attack { get; protected set; }
+        public int Attack { get; protected internal set; }
+
+        public int ChangedAttack { get; protected set; }
 
         public int DefaultAttack { get; protected set; }
 
@@ -16,7 +18,8 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public virtual void NextAbility()
@@ -29,6 +32,8 @@ namespace GameFighter.Models
             thisArmy?.AvokeUnitsNextAbility();
 
             warrior.GetAttack(Attack);
+
+            Attack = ChangedAttack;
         }
 
         public virtual int GetAttack(int attack)
@@ -57,6 +62,7 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Attack + weapon.AttackParametr, 0);
             Attack = plus;
+            ChangedAttack = plus;
             unitsWeapons.Add(weapon);
         }
     }

@@ -21,7 +21,6 @@ namespace GameFighter.Models
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
             thisArmy?.AvokeUnitsNextAbility();
-            //NextAbility();
 
             int actualAttack = warrior.GetAttack(Attack);
 
@@ -33,6 +32,7 @@ namespace GameFighter.Models
             {
                 Health = MaxHealth;
             }
+            Attack = ChangedAttack;
         }
         
         public override void EquipWeapon(Weapon weapon)
