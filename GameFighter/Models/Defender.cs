@@ -14,6 +14,7 @@ namespace GameFighter.Models
             Defence = 2;
 
             MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             DefaultAttack = Attack;
         }
 

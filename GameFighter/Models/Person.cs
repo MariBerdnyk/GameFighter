@@ -17,6 +17,8 @@ namespace GameFighter.Models
 
         public int MaxHealth { get; protected internal set; }
 
+        public int DefaultHealth { get; protected set; }
+
         public Warrior Next { get; set; } = default;
 
         public virtual void PrepareForBattle() { }

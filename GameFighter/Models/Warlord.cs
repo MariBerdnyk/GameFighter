@@ -11,6 +11,7 @@ namespace GameFighter.Models
             Attack = 4;
 
             MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             DefaultAttack = Attack;
         }
 
@@ -56,7 +57,7 @@ namespace GameFighter.Models
 
             if(lancers.Count > 0 && angels.Count > 0)
             {
-                var tempCol = lancers.Zip(angels).ToList();
+                var tempCol = lancers.Where(x => x.MaxHealth == x.DefaultHealth).Zip(angels).ToList();
                 foreach (var (first, second) in tempCol)
                 {
                     newArmy.Add(first);
@@ -69,7 +70,7 @@ namespace GameFighter.Models
 
             if(others.Count > 0 && angels.Count > 0)
             {
-                var tempCol = lancers.Zip(angels).ToList();
+                var tempCol = others.Where(x => x.MaxHealth == x.DefaultHealth).Zip(angels).ToList();
                 foreach (var (first, second) in tempCol)
                 {
                     newArmy.Add(first);
