@@ -5,7 +5,7 @@ namespace GameFighter.Models
 {
     public class Army
     {
-        public readonly List<Warrior> ArmyMembers = new ();
+        public List<Warrior> ArmyMembers { get; private set; } = new();
 
         public int CountUnits => ArmyMembers.Count;
 
@@ -15,7 +15,7 @@ namespace GameFighter.Models
 
         public void MoveUnits()
         {
-            FindWarlord?.MoveUnits(this);
+            ArmyMembers = FindWarlord?.MoveUnits(ArmyMembers);
         }
 
         public void PrepareArmyForBattle()
