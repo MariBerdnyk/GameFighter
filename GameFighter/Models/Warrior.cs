@@ -40,7 +40,7 @@ namespace GameFighter
 
             if (Health <= 0)
             {
-                Next.PrepareForBattle(this);
+                Next?.PrepareForBattle(this);
             }
 
             return Health > 0 ? beforeFightHealth - Health : beforeFightHealth;

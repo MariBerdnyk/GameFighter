@@ -26,10 +26,13 @@ namespace GameFighter.Models.OwnTask
 
         public override void PrepareForBattle(Warrior warrior)
         {
-            warrior.Health = warrior.MaxHealth * 50 / 100;
-            warrior.MaxHealth = warrior.Health;
+            if (IsAlive)
+            {
+                warrior.Health = warrior.MaxHealth * 50 / 100;
+                warrior.MaxHealth = warrior.Health;
 
-            Health--;
+                Health--;
+            }
         }
 
         public override void EquipWeapon(Weapon weapon)
