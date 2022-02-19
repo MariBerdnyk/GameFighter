@@ -13,7 +13,7 @@ namespace GameFighter.Models
             Attack = 4;
             Vampirism = 50;
 
-            MaxHealth = 40;
+            MaxHealth = Health;
             DefaultAttack = Attack;
         }
 

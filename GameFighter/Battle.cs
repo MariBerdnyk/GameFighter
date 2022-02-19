@@ -20,12 +20,7 @@ namespace GameFighter
 
             while (warrior1.IsAlive)
             {
-                Console.WriteLine();
-                Console.Write(warrior1 + " | "+ warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
-                Console.WriteLine();
                 warrior1.Attacks(warrior2, army1);
-
-                Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
 
                 if (!warrior2.IsAlive)
                 {
@@ -33,11 +28,8 @@ namespace GameFighter
                 }
                 
                 warrior2.Attacks(warrior1, army2);
-                Console.WriteLine();
-                Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
             }
-            Console.WriteLine();
-            Console.Write(warrior1 + " | " + warrior1.Health + "\t" + warrior2 + " | " + warrior2.Health);
+            
             return false;
         }
 
@@ -66,19 +58,49 @@ namespace GameFighter
             army1.PrepareArmyForBattle();
             army2.PrepareArmyForBattle();
 
-            foreach (var item in army1.ArmyMembers)
+            for (int i = 0; i < army1.CountUnits; i++)
             {
-                if (item.IsAlive)
+                if (army1.ArmyMembers[i].IsAlive)
                 {
-                    foreach (var item2 in army2.ArmyMembers)
+                    for (int j = 0; j < army2.CountUnits; j++)
                     {
-                        if (item2.IsAlive && !Fight(item, item2, army1, army2))
+                        bool isUnitAlive = army2.ArmyMembers[j].IsAlive;
+                        
+                        if (isUnitAlive && !Fight(army1.ArmyMembers[i], army2.ArmyMembers[j], army1, army2))
                         {
+                            army1.MoveUnits();
+                            i = -1;
+
                             break;
+                        }
+
+                        else if(isUnitAlive)
+                        {
+                            army2.MoveUnits();
+                            j = -1;
                         }
                     }
                 }
             }
+
+            //foreach (var item in army1.ArmyMembers)
+            //{
+            //    if (item.IsAlive)
+            //    {
+            //        foreach (var item2 in army2.ArmyMembers)
+            //        {
+            //            if (item2.IsAlive && !Fight(item, item2, army1, army2))
+            //            {
+            //                army1.MoveUnits();
+            //                break;
+            //            }
+            //            else if (item2.IsAlive)
+            //            {
+            //                army2.MoveUnits();
+            //            }
+            //        }
+            //    }
+            //}
             return army1.HasAliveUnit;
         }
 
@@ -103,6 +125,9 @@ namespace GameFighter
             {
                 throw new Exception("First units must be able to attack!");
             }
+
+            army1.PrepareArmyForStraightBattle();
+            army2.PrepareArmyForStraightBattle();
 
             do
             {

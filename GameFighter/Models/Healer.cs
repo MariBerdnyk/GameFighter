@@ -15,14 +15,13 @@ namespace GameFighter.Models
             Health = 60;
             Heal = 2;
 
-            MaxHealth = 60;
-
+            MaxHealth = Health;
             DefaultAttack = Attack;
         }
 
         public override void PrepareForBattle()
         {
-            NumberOfKit = 10;
+            NumberOfKit = 100;
         }
 
         public override void UniqueOption(Warrior warrior)

@@ -5,40 +5,59 @@ namespace GameFighter.Models
 {
     public class Army
     {
-        public readonly List<Warrior> ArmyMembers = new List<Warrior>();
+        public List<Warrior> ArmyMembers { get; private set; } = new();
 
         public int CountUnits => ArmyMembers.Count;
 
-        public bool HasAliveUnit
+        public bool HasAliveUnit => ArmyMembers.Any(x => x.IsAlive);
+        
+        public Warlord FindWarlord => (Warlord)ArmyMembers.FirstOrDefault(x => x is Warlord);
+
+        private void Restock()
         {
-            get
+            ArmyMembers.ForEach(x => x.PrepareForBattle());
+        }
+
+        private void SetNextArmy()
+        {
+            for (int i = 1; i < CountUnits; i++)
             {
-                foreach (var item in ArmyMembers)
-                {
-                    if (item.IsAlive)
-                    {
-                        return true;
-                    }
-                }
-                return false;
+                ArmyMembers[i - 1].Next = ArmyMembers[i];
             }
+            ArmyMembers[CountUnits - 1].Next = null;
+        }
+
+
+        private void MoveUnitsStraightBattle()
+        {
+            var units = FindWarlord?.MoveUnits(ArmyMembers);
+            if (units != null)
+            {
+                ArmyMembers = units;
+            }
+        }
+
+        public void MoveUnits()
+        {
+            MoveUnitsStraightBattle();
+            SetNextArmy();
         }
 
         public void PrepareArmyForBattle()
         {
-            for (int i = 1; i < CountUnits; i++)
-            {
-                ArmyMembers[i - 1].PrepareForBattle();
-                ArmyMembers[i - 1].Next = ArmyMembers[i];
-            }
+            MoveUnits();
+            Restock();
+        }
+
+        public void PrepareArmyForStraightBattle()
+        {
+            MoveUnitsStraightBattle();
+            Restock();
         }
 
         public void AvokeUnitsNextAbility()
         {
-            foreach (var item in ArmyMembers)
-            {
-                item.NextAbility();
-            }
+            ArmyMembers.ForEach(x => x.NextAbility());
         }
 
         public void AddUnits<T>(int number) where T : Warrior, new()
@@ -46,6 +65,11 @@ namespace GameFighter.Models
             while (number > 0)
             {
                 T unit = new();
+
+                if (unit is Warlord && FindWarlord != null)
+                {
+                    return;
+                }
 
                 ArmyMembers.Add(unit);
                 number--;

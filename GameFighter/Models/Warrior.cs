@@ -14,8 +14,8 @@ namespace GameFighter
         {
             Health = 50;
             Attack = 5;
-            MaxHealth = 50;
 
+            MaxHealth = Health;
             DefaultAttack = Attack;
         }
 
