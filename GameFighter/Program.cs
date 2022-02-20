@@ -65,7 +65,7 @@ namespace GameFighter
 
             army1.AddUnits<Warrior>(1);
             army1.AddUnits<Archer>(1);
-            army1.ArmyMembers[0].EquipWeapon(new Sword());
+            army1[0].EquipWeapon(new Sword());
 
             army2.AddUnits<Defender>(4);
 

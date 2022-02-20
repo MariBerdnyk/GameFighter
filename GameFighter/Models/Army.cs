@@ -1,11 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GameFighter.Models
 {
-    public class Army
+    public class Army : IEnumerable
     {
         public List<Warrior> ArmyMembers { get; private set; } = new();
+
+        public Warrior this[int index]
+        {
+            get => ArmyMembers[index];
+            set 
+            { 
+                ArmyMembers[index] = value; 
+            }
+        }
 
         public int CountUnits => ArmyMembers.Count;
 
@@ -74,5 +84,7 @@ namespace GameFighter.Models
                 number--;
             }
         }
+
+        public IEnumerator GetEnumerator() => ArmyMembers.GetEnumerator();
     }
 }

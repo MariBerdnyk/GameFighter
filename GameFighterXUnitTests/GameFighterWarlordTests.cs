@@ -88,8 +88,8 @@ namespace GameFighterXUnitTests
             army2.AddUnits<Rookie>(1);
             army2.AddUnits<Knight>(1);
 
-            army1.ArmyMembers[0].EquipWeapon(new Sword());
-            army2.ArmyMembers[0].EquipWeapon(new Shield());
+            army1[0].EquipWeapon(new Sword());
+            army2[0].EquipWeapon(new Shield());
 
             Assert.True(Battle.Fight(army1, army2));
         }
@@ -110,8 +110,8 @@ namespace GameFighterXUnitTests
             army2.AddUnits<Rookie>(1);
             army2.AddUnits<Knight>(1);
 
-            army1.ArmyMembers[0].EquipWeapon(new Sword());
-            army2.ArmyMembers[0].EquipWeapon(new Shield());
+            army1[0].EquipWeapon(new Sword());
+            army2[0].EquipWeapon(new Shield());
 
             Assert.False(Battle.StraightFight(army1, army2));
         }

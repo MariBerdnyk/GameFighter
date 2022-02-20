@@ -70,13 +70,13 @@ namespace GameFighter
 
             for (int i = 0; i < army1.CountUnits; i++)
             {
-                if (army1.ArmyMembers[i].IsAlive)
+                if (army1[i].IsAlive)
                 {
                     for (int j = 0; j < army2.CountUnits; j++)
                     {
-                        bool isUnitAlive = army2.ArmyMembers[j].IsAlive;
+                        bool isUnitAlive = army2[j].IsAlive;
                         
-                        if (isUnitAlive && !Fight(army1.ArmyMembers[i], army2.ArmyMembers[j], army1, army2))
+                        if (isUnitAlive && !Fight(army1[i], army2[j], army1, army2))
                         {
                             army1.MoveUnits();
                             army2.MoveUnits();
