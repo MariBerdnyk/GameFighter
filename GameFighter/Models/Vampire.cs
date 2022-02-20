@@ -15,13 +15,13 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override void Attacks(Warrior warrior, Army thisArmy)
         {
             thisArmy?.AvokeUnitsNextAbility();
-            //NextAbility();
 
             int actualAttack = warrior.GetAttack(Attack);
 
@@ -33,6 +33,7 @@ namespace GameFighter.Models
             {
                 Health = MaxHealth;
             }
+            Attack = ChangedAttack;
         }
         
         public override void EquipWeapon(Weapon weapon)
@@ -41,7 +42,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Vampirism + weapon.VampirismParametr, 0);
             Vampirism = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }

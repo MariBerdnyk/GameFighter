@@ -17,7 +17,8 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override void PrepareForBattle()
@@ -43,7 +44,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Heal + weapon.HealParametr, 0);
             Heal = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }

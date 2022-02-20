@@ -15,7 +15,8 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override int GetAttack(int attack)
@@ -42,7 +43,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Defence + weapon.DefenceParametr, 0);
             Defence = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }

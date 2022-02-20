@@ -12,7 +12,8 @@ namespace GameFighter.Models
 
             MaxHealth = Health;
             DefaultHealth = MaxHealth;
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public List<Warrior> MoveUnits(List<Warrior> army)
@@ -23,6 +24,7 @@ namespace GameFighter.Models
             List<Warrior> lancers = new();
             List<Warrior> healers = new();
             List<Warrior> deadUnits = new();
+            List<Warrior> archers = new();
             List<Warrior> others = new();
             List<Warrior> angels = new();
 
@@ -48,6 +50,10 @@ namespace GameFighter.Models
                 else if(item is Angel)
                 {
                     angels.Add(item);
+                }
+                else if(item is Archer)
+                {
+                    archers.Add(item);
                 }
                 else
                 {
@@ -91,9 +97,11 @@ namespace GameFighter.Models
                 newArmy.Add(others.First());
                 others.RemoveAt(0);
             }
+
             newArmy.AddRange(healers);
             newArmy.AddRange(lancers);
             newArmy.AddRange(others);
+            newArmy.AddRange(archers);
             newArmy.AddRange(angels);
             newArmy.AddRange(warlords);
             newArmy.AddRange(deadUnits);

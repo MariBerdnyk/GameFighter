@@ -10,7 +10,8 @@ namespace GameFighter.Models
             Health = 1;
             Attack = 0;
 
-            DefaultAttack = 0;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
             MaxHealth = 1;
         }
 

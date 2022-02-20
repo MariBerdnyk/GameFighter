@@ -111,5 +111,18 @@ namespace GameFighterXUnitTests
 
             Assert.False(Battle.Fight(army1, army2));
         }
+
+        [Fact]
+        public void Fight_AngelVsKnight_ReturnFalse()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Angel>(1);
+
+            army2.AddUnits<Knight>(1);
+
+            Assert.False(Battle.Fight(army1, army2));
+        }
     }
 }
