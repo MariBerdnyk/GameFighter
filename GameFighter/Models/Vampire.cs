@@ -42,7 +42,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Vampirism + weapon.VampirismParametr, 0);
             Vampirism = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }

@@ -12,6 +12,8 @@
 
         public int HealParametr { get; init; } = default;
 
+        public int RangedAttackParametr { get; init; } = default;
+
         public Weapon(int healthParametr, int attackParametr, int defenceParametr, int vampirismParametr, int healParametr)
         {
             HealthParametr = healthParametr;

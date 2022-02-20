@@ -43,7 +43,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Defence + weapon.DefenceParametr, 0);
             Defence = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }

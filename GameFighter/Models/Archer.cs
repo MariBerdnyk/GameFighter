@@ -1,4 +1,7 @@
-﻿namespace GameFighter.Models
+﻿using GameFighter.Weapons;
+using System;
+
+namespace GameFighter.Models
 {
     public class Archer : Warrior
     {
@@ -6,9 +9,12 @@
 
         public Archer()
         {
+            Health = 40;
             Attack = 2;
             RangedAttack = 5;
 
+            MaxHealth = Health;
+            DefaultHealth = MaxHealth;
             ChangedAttack = Attack;
             DefaultAttack = ChangedAttack;
         }
@@ -27,6 +33,14 @@
             {
                 EquipWeapon(item);
             }
+        }
+
+        public override void EquipWeapon(Weapon weapon)
+        {
+            base.EquipWeapon(weapon);
+
+            int plus = Math.Max(RangedAttack + weapon.RangedAttackParametr, 0);
+            RangedAttack = plus;
         }
     }
 }

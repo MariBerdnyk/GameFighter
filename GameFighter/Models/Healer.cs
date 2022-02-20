@@ -44,7 +44,6 @@ namespace GameFighter.Models
 
             int plus = Math.Max(Heal + weapon.HealParametr, 0);
             Heal = plus;
-            unitsWeapons.Add(weapon);
         }
     }
 }
