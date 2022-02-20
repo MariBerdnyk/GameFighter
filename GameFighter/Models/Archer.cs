@@ -9,7 +9,8 @@
             Attack = 2;
             RangedAttack = 5;
 
-            DefaultAttack = Attack;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
 
         public override void UniqueOption(Warrior warrior)

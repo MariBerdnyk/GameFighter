@@ -7,6 +7,8 @@ namespace GameFighterXUnitTests
         public Rookie()
         {
             Attack = 1;
+            ChangedAttack = Attack;
+            DefaultAttack = ChangedAttack;
         }
     }
 }
