@@ -26,7 +26,7 @@ namespace GameFighterXUnitTests
             new object[] { 4, 1, 6, false },
         };
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 3 knights")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy3Knights_ReturnTrue(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -39,7 +39,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 3 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy3Warriors_ReturnTrue(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -52,7 +52,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 1 warrior and 2 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy1WarriorVs2Warriors_ReturnFalse(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -65,7 +65,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 2 warriros and 3 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy2WarriorVs3Warriors_ReturnFalse(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -78,7 +78,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 5 warriors and 7 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy5WarriorVs7Warriors_ReturnFalse(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -91,7 +91,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory(DisplayName = "Fight between two armies with 20 warriors and 21 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy20WarriorVs21Warriors_ReturnTrue(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -104,7 +104,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 10 warriors and 11 warriors")]
         [MemberData(nameof(TestsInfoForTwo))]
         public void Fight_TwoArmy10WarriorVs11Warriors_ReturnTrue(int unitCount1, int unitCount2, bool expectedResult)
         {
@@ -117,7 +117,7 @@ namespace GameFighterXUnitTests
             Assert.Equal(expectedResult, Battle.Fight(army1, army2));
         }
 
-        [Theory]
+        [Theory (DisplayName = "Fight between two armies with 4 warriors 1 knight and 6 warriors")]
         [MemberData(nameof(TestsInfoForThree))]
         public void Fight_TwoArmy4Warrior1KnightVs6Warriors_ReturnFalse(int unitCount1, int unitCount2, int unitCount3, bool expectedResult)
         {
