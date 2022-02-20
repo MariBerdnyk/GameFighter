@@ -1,7 +1,6 @@
 ﻿using GameFighter;
 using GameFighter.Models;
 using GameFighter.Weapons;
-using System;
 using Xunit;
 
 namespace GameFighterXUnitTests
