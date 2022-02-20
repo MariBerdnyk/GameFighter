@@ -23,7 +23,7 @@ namespace GameFighterXUnitTests
         public static IEnumerable<object[]> TestsInfoForThree =>
         new List<object[]>
         {
-            new object[] { 4, 1, 6, true },
+            new object[] { 4, 1, 6, false },
         };
 
         [Theory]
