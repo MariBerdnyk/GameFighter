@@ -96,7 +96,7 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
-        public void Fight_2Angel2LancerHealerWarlordVs8WarriorWarlord_ReturnTrue()
+        public void Fight_2Angel2LancerHealerWarlordVs8WarriorWarlord_ReturnFalse()
         {
             var army1 = new Army();
             var army2 = new Army();

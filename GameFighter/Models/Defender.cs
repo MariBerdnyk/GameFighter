@@ -44,5 +44,10 @@ namespace GameFighter.Models
             int plus = Math.Max(Defence + weapon.DefenceParametr, 0);
             Defence = plus;
         }
+
+        public override string ToString()
+        {
+            return "Defender" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }

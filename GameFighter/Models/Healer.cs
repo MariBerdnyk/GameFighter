@@ -45,5 +45,10 @@ namespace GameFighter.Models
             int plus = Math.Max(Heal + weapon.HealParametr, 0);
             Heal = plus;
         }
+
+        public override string ToString()
+        {
+            return "Healer" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }

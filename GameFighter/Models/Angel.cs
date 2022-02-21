@@ -40,5 +40,10 @@ namespace GameFighter.Models
         {
             throw new InvalidOperationException("Angel can't have equipment!");
         }
+
+        public override string ToString()
+        {
+            return "Angel" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }

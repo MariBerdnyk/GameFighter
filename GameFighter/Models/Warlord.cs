@@ -28,7 +28,6 @@ namespace GameFighter.Models
             List<Warrior> others = new();
             List<Warrior> angels = new();
 
-
             foreach (var item in army)
             {
                 if (!item.IsAlive)
@@ -107,6 +106,11 @@ namespace GameFighter.Models
             newArmy.AddRange(deadUnits);
 
             return newArmy;
+        }
+
+        public override string ToString()
+        {
+            return "Warlord" + " | Attack: " + Attack + " | Health: " + Health;
         }
     }
 }

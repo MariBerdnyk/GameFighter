@@ -43,5 +43,10 @@ namespace GameFighter.Models
             int plus = Math.Max(Vampirism + weapon.VampirismParametr, 0);
             Vampirism = plus;
         }
+
+        public override string ToString()
+        {
+            return "Vampire" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }

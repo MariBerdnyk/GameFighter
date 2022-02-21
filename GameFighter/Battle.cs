@@ -45,29 +45,49 @@ namespace GameFighter
         public static bool Fight(Warrior warrior1, Warrior warrior2, Army army1 = null, Army army2 = null)
         {
             ValidatingUnits(warrior1, warrior2);
-
+            Console.WriteLine();
+            Console.WriteLine("__________Round: " + round + "__________");
             while (warrior1.IsAlive)
             {
+                Console.WriteLine();
+                Console.WriteLine("Before start:");
+                Console.WriteLine (warrior1 + "\tVs\t" + warrior2);
+                Console.WriteLine(warrior1.Next + "\t  \t" + warrior2.Next);
                 warrior1.Attacks(warrior2, army1);
+
+                Console.WriteLine();
+                Console.WriteLine("After attack first:");
+                Console.WriteLine(warrior1 + "\tVs\t" + warrior2);
+                Console.WriteLine(warrior1.Next + "\t  \t" + warrior2.Next);
 
                 if (!warrior2.IsAlive)
                 {
                     return true;
                 }
-                
                 warrior2.Attacks(warrior1, army2);
+                Console.WriteLine();
+                Console.WriteLine("After attack second:");
+                Console.WriteLine(warrior1 + "\tVs\t" + warrior2);
+                Console.WriteLine(warrior1.Next + "\t  \t" + warrior2.Next);
             }
-            
             return false;
         }
-
+        static int round = 1;
         public static bool Fight(Army army1, Army army2)
         {
             ValidatingArmy(army1, army2);
+            Console.WriteLine("_________Army 1 members:__________");
+            army1.Print();
+            Console.WriteLine();
+            Console.WriteLine("_________Army 2 members:__________");
+            army2.Print();
 
+            Console.WriteLine();
+            Console.WriteLine("_________Army 1 after mooving:__________");
             army1.PrepareArmyForBattle();
+            Console.WriteLine();
+            Console.WriteLine("_________Army 2 after mooving:__________");
             army2.PrepareArmyForBattle();
-
             for (int i = 0; i < army1.CountUnits; i++)
             {
                 if (army1[i].IsAlive)
@@ -78,18 +98,25 @@ namespace GameFighter
                         
                         if (isUnitAlive && !Fight(army1[i], army2[j], army1, army2))
                         {
+                            Console.WriteLine("_________Army 1 after mooving:__________");
                             army1.MoveUnits();
+                            Console.WriteLine();
+                            Console.WriteLine("_________Army 2 after mooving:__________");
                             army2.MoveUnits();
                             i = -1;
-
+                            round++;
                             break;
                         }
 
                         else if(isUnitAlive)
                         {
+                            Console.WriteLine("_________Army 1 after mooving:__________");
                             army1.MoveUnits();
+                            Console.WriteLine();
+                            Console.WriteLine("_________Army 2 after mooving:__________");
                             army2.MoveUnits();
                             j = -1;
+                            round++;
                         }
                     }
                 }

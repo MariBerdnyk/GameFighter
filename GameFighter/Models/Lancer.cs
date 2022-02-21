@@ -19,5 +19,10 @@
 
             Attack = ChangedAttack;
         }
+
+        public override string ToString()
+        {
+            return "Lancer" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }

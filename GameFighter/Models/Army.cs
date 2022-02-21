@@ -43,6 +43,8 @@ namespace GameFighter.Models
             if (units != null)
             {
                 ArmyMembers = units;
+
+                Print();
             }
         }
 
@@ -86,5 +88,13 @@ namespace GameFighter.Models
         }
 
         public IEnumerator GetEnumerator() => ArmyMembers.GetEnumerator();
+
+        public void Print()
+        {
+            foreach (var item in ArmyMembers)
+            {
+                System.Console.WriteLine(item);
+            }
+        }
     }
 }

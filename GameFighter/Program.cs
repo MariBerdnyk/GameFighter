@@ -60,14 +60,8 @@ namespace GameFighter
             //vampire.EquipWeapon(new Katana());
 
             //Battle.Fight(defender, vampire);
-            var army1 = new Army();
-            var army2 = new Army();
-
-            army1.AddUnits<Warrior>(1);
-            army1.AddUnits<Archer>(1);
-            army1[0].EquipWeapon(new Sword());
-
-            army2.AddUnits<Defender>(4);
+            Army army1 = null;
+            Army army2 = null;
 
             Battle.Fight(army1, army2);
         }

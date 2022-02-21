@@ -64,5 +64,10 @@ namespace GameFighter.Models
             Attack = plus;
             ChangedAttack = plus;
         }
+
+        public override string ToString()
+        {
+            return "Warrior" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }
