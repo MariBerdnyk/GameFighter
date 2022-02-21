@@ -113,6 +113,42 @@ namespace GameFighterXUnitTests
         }
 
         [Fact]
+        public void Fight_2AngelLancerWarriorHealerWarlordVs6WarriorWarlord_ReturnFalse()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Angel>(2);
+            army1.AddUnits<Lancer>(1);
+            army1.AddUnits<Warrior>(1);
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Warlord>(1);
+
+            army2.AddUnits<Warrior>(6);
+            army2.AddUnits<Warlord>(1);
+
+            Assert.False(Battle.Fight(army1, army2));
+        }
+
+        [Fact]
+        public void Fight_2AngelLancerWarriorHealerWarlordVs5WarriorWarlord_ReturnTrue()
+        {
+            var army1 = new Army();
+            var army2 = new Army();
+
+            army1.AddUnits<Angel>(2);
+            army1.AddUnits<Lancer>(1);
+            army1.AddUnits<Warrior>(1);
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Warlord>(1);
+
+            army2.AddUnits<Warrior>(5);
+            army2.AddUnits<Warlord>(1);
+
+            Assert.True(Battle.Fight(army1, army2));
+        }
+
+        [Fact]
         public void Fight_AngelVsKnight_ReturnFalse()
         {
             var army1 = new Army();

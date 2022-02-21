@@ -63,11 +63,14 @@ namespace GameFighter
             var army1 = new Army();
             var army2 = new Army();
 
+            army1.AddUnits<Angel>(2);
+            army1.AddUnits<Lancer>(1);
             army1.AddUnits<Warrior>(1);
-            army1.AddUnits<Archer>(1);
-            army1.ArmyMembers[0].EquipWeapon(new Sword());
+            army1.AddUnits<Healer>(1);
+            army1.AddUnits<Warlord>(1);
 
-            army2.AddUnits<Defender>(4);
+            army2.AddUnits<Warrior>(7);
+            army2.AddUnits<Warlord>(1);
 
             System.Console.WriteLine("Result:\t" + Battle.Fight(army1, army2));
         }
