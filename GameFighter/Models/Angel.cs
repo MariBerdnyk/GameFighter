@@ -15,15 +15,10 @@ namespace GameFighter.Models
             MaxHealth = 1;
         }
 
-        public override int GetAttack(int attack)
-        {
-            return 0;
-        }
+        public override int GetAttack(int attack) => 0;
 
-        public override void Attacks(Warrior warrior, Army thisArmy)
-        {
-            Health--;
-        }
+        public override void Attacks(Warrior warrior, Army thisArmy) => Health--;
+        
 
         public override void PrepareForBattle(Warrior warrior)
         {
@@ -36,10 +31,8 @@ namespace GameFighter.Models
             }
         }
 
-        public override void EquipWeapon(Weapon weapon)
-        {
-            throw new InvalidOperationException("Angel can't have equipment!");
-        }
+        public override void EquipWeapon(Weapon weapon) 
+            => throw new InvalidOperationException("Angel can't have equipment!");
 
         public override string ToString()
         {
