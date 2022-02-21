@@ -42,5 +42,9 @@ namespace GameFighter.Models
             int plus = Math.Max(RangedAttack + weapon.RangedAttackParametr, 0);
             RangedAttack = plus;
         }
+        public override string ToString()
+        {
+            return "Archer" + " | Attack: " + Attack + " | Health: " + Health;
+        }
     }
 }
